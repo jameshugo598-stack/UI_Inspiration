@@ -1,0 +1,1701 @@
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Agency - Digital Design Partner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+sans: ['Geist', 'sans-serif'],
+},
+colors: {
+neutral: {
+50: '#fafafa',
+100: '#f5f5f5',
+200: '#e5e5e5',
+300: '#d4d4d4',
+400: '#a3a3a3',
+500: '#737373',
+600: '#525252',
+700: '#404040',
+800: '#262626',
+900: '#171717',
+}
+},
+animation: {
+'marquee': 'marquee 40s linear infinite',
+'clip-in': 'clipIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) both',
+'fade-up': 'fadeUp 0.8s ease-out forwards',
+},
+keyframes: {
+marquee: {
+'0%': { transform: 'translateX(0%)' },
+'100%': { transform: 'translateX(-50%)' },
+},
+clipIn: {
+'0%': { opacity: '0', clipPath: 'inset(0 0 100% 0)' },
+'100%': { opacity: '1', clipPath: 'inset(0 0 0 0)' },
+},
+fadeUp: {
+'0%': { opacity: '0', transform: 'translateY(20px)' },
+'100%': { opacity: '1', transform: 'translateY(0)' },
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Custom Utilities */
+.glass-panel {
+background: rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(24px);
+-webkit-backdrop-filter: blur(24px);
+border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.glass-card-hover {
+transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+/* Spotlight Effect */
+.spotlight-card {
+position: relative;
+overflow: hidden;
+}
+.spotlight-card::before {
+content: '';
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.6), transparent 40%);
+opacity: 0;
+transition: opacity 0.5s;
+pointer-events: none;
+z-index: 10;
+}
+.spotlight-card:hover::before {
+opacity: 1;
+}
+/* Border Gradient Button */
+.btn-gradient-border {
+position: relative;
+background: rgba(255,255,255,0.8);
+background-clip: padding-box;
+border: 1px solid transparent;
+border-radius: 9999px;
+}
+.btn-gradient-border::after {
+content: '';
+position: absolute;
+top: -1px; bottom: -1px; left: -1px; right: -1px;
+background: linear-gradient(to right, #e5e5e5, #a3a3a3, #e5e5e5);
+z-index: -1;
+border-radius: 9999px;
+}
+/* 3D Carousel Styles */
+.carousel-container {
+perspective: 1000px;
+}
+.carousel-card {
+position: absolute;
+transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+transform-style: preserve-3d;
+opacity: 0;
+}
+.carousel-card.active {
+transform: translateX(0) scale(1) translateZ(0);
+opacity: 1;
+z-index: 20;
+}
+.carousel-card.prev {
+transform: translateX(-110%) scale(0.85) translateZ(-50px) rotateY(5deg);
+opacity: 0.6;
+z-index: 10;
+filter: blur(2px);
+}
+.carousel-card.next {
+transform: translateX(110%) scale(0.85) translateZ(-50px) rotateY(-5deg);
+opacity: 0.6;
+z-index: 10;
+filter: blur(2px);
+}
+/* Vertical Lines Background */
+.grid-lines {
+background-size: 20% 100%;
+background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px);
+}
+</style>
+<meta name="disabled-font-classes" content="font-roboto,font-montserrat,font-poppins,font-playfair,font-instrument-serif,font-merriweather,font-bricolage,font-jakarta,font-manrope,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito,font-newsreader,font-google-sans-flex,font-oswald,font-dm-sans">
+<style id="aura-editor-visibility-style">
+.invisible { visibility: hidden !important; }
+</style>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style></head>
+<body class="min-h-screen overflow-x-hidden selection:bg-neutral-300 selection:text-neutral-900 text-neutral-900 bg-neutral-100 relative">
+
+    <!-- Background Grid Lines -->
+    <div class="fixed grid-lines w-full h-full top-0 right-0 bottom-0 left-0"></div>
+
+    <div class="relative z-10 flex flex-col lg:flex-row min-h-screen max-w-[1600px] mx-auto">
+        
+        <!-- Sidebar / Navigation -->
+        <aside class="lg:w-64 lg:fixed lg:h-screen flex flex-col z-50 glass-panel lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:border-r w-full border-neutral-200/50 border-b pt-8 pr-8 pb-8 pl-8 justify-between">
+  <div class="">
+    <div class="mb-12 animate-clip-in" style="animation-delay: 0.1s;">
+      <a href="#" class="block text-3xl tracking-tighter font-medium group font-geist" style="">
+        start<span class="text-neutral-400 group-hover:text-neutral-900 transition-colors font-geist" style="">.agency</span>
+      </a>
+    </div>
+
+    <nav class="space-y-4 animate-clip-in" style="animation-delay: 0.2s;">
+      <a href="#" class="block text-lg text-neutral-900 font-medium hover:translate-x-1 transition-transform font-geist" style="">Home</a>
+      <a href="#" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist" style="">Work</a>
+      <a href="#" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist" style="">Services</a>
+      <a href="#" class="block text-lg text-neutral-500 hover:text-neutral-900 hover:translate-x-1 transition-all font-geist" style="">Pricing</a>
+      <a href="#" class="block hover:text-neutral-900 hover:translate-x-1 transition-all text-lg text-neutral-500 font-geist" style="">Contact</a>
+    </nav>
+  </div>
+
+  <div class="hidden lg:block space-y-2 animate-clip-in" style="animation-delay: 0.3s;">
+    <div class="flex items-center gap-2 mb-4">
+      <img src="https://ui-avatars.com/api/?name=Start+Agency&amp;background=random&amp;color=fff" alt="User" class="w-8 h-8 rounded-full opacity-80">
+      <div class="text-sm leading-tight">
+        <p class="font-medium text-neutral-900 font-geist" style="">start.agency</p>
+        <p class="text-neutral-500 font-geist" style="">@startagency</p>
+      </div>
+    </div>
+    <p class="text-xs text-neutral-400 font-geist" style="">Template designed by François Savard from END Agency.</p>
+  </div>
+</aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 lg:ml-64 lg:p-16 flex flex-col gap-20 lg:gap-12 overflow-hidden pt-6 pr-6 pb-6 pl-6 gap-x-20 gap-y-20">
+
+  <!-- Hero Section -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-10 gap-x-12 gap-y-12">
+  <div class="animate-clip-in lg:col-span-7 pb-4 space-y-8" style="animation-delay: 0.4s">
+    <h1 class="leading-[0.95] lg:text-7xl xl:text-7xl text-5xl font-medium text-neutral-900 tracking-tight font-geist" style="">Design partner for startups that move fast and ship right.</h1>
+    <p class="leading-snug lg:text-base text-xl font-normal text-neutral-500 font-geist">
+      We help founders turn messy ideas into products people actually use.
+      Product, brand, and web design. One team. Zero friction.
+    </p>
+    <button class="glass-button all-unset cursor-pointer outline-none focus:outline-none z-30 pointer-events-auto text-base rounded-full mt-1 mb-1 relative">
+          <span class="button-text relative block select-none font-medium text-base text-neutral-800 tracking-tight px-6 py-3.5 font-geist" style="font-size: 18px;">
+              Design with us
+          </span>
+          <!-- Shine Effect -->
+          <div class="button-shine"></div>
+      </button>
+    <style class="">
+      @property --angle-1 {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: -75deg;
+      }
+
+      @property --angle-2 {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: -45deg;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        font-size: clamp(2rem, 4vw, 5rem);
+      }
+
+      .button-wrap {
+        transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .glass-button {
+        background: linear-gradient(-75deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+        box-shadow:
+          inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+          inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+          0 0.25em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+          0 0 0.1em 0.25em rgba(255, 255, 255, 0.2) inset,
+          0 0 0 0 rgba(255, 255, 255, 1);
+        backdrop-filter: blur(clamp(1px, 0.125em, 4px));
+        transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .glass-button:hover {
+        transform: scale(0.975);
+        backdrop-filter: blur(0.01em);
+        box-shadow:
+          inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+          inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+          0 0.15em 0.05em -0.1em rgba(0, 0, 0, 0.25),
+          0 0 0.05em 0.1em rgba(255, 255, 255, 0.5) inset,
+          0 0 0 0 rgba(255, 255, 255, 1);
+      }
+
+      .glass-button:active {
+        transform: scale(0.95) rotate3d(1, 0, 0, 25deg);
+        box-shadow:
+          inset 0 0.125em 0.125em rgba(0, 0, 0, 0.05),
+          inset 0 -0.125em 0.125em rgba(255, 255, 255, 0.5),
+          0 0.125em 0.125em -0.125em rgba(0, 0, 0, 0.2),
+          0 0 0.1em 0.25em rgba(255, 255, 255, 0.2) inset,
+          0 0.225em 0.05em 0 rgba(0, 0, 0, 0.05),
+          0 0.25em 0 0 rgba(255, 255, 255, 0.75),
+          inset 0 0.25em 0.05em 0 rgba(0, 0, 0, 0.15);
+      }
+
+      .button-text {
+        text-shadow: 0em 0.25em 0.05em rgba(0, 0, 0, 0.1);
+        transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .glass-button:hover .button-text {
+        text-shadow: 0.025em 0.025em 0.025em rgba(0, 0, 0, 0.12);
+      }
+
+      .glass-button:active .button-text {
+        text-shadow: 0.025em 0.25em 0.05em rgba(0, 0, 0, 0.12);
+      }
+
+      .button-shadow {
+        filter: blur(clamp(2px, 0.125em, 12px));
+        transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .button-shadow::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
+        width: calc(100% - 2em);
+        height: calc(100% - 2em);
+        top: -0.5em;
+        left: -0.875em;
+        padding: 0.125em;
+        box-sizing: border-box;
+        opacity: 1;
+        transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .glass-button:hover+.button-shadow {
+        filter: blur(clamp(2px, 0.0625em, 6px));
+      }
+
+      .glass-button:hover+.button-shadow::after {
+        top: -0.875em;
+        opacity: 1;
+      }
+
+      .glass-button:active+.button-shadow {
+        filter: blur(clamp(2px, 0.125em, 12px));
+      }
+
+      .glass-button:active+.button-shadow::after {
+        top: -0.5em;
+        opacity: 0.75;
+      }
+
+      .glass-button::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        top: -1px;
+        left: -1px;
+        padding: 1px;
+        box-sizing: border-box;
+        background:
+          conic-gradient(from var(--angle-1) at 50% 50%, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 5% 40%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 60% 95%, rgba(0, 0, 0, 0.5)),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+        mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        mask-composite: exclude;
+        transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1), --angle-1 500ms ease;
+        box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.5);
+      }
+
+      .glass-button:hover::after {
+        --angle-1: -125deg;
+      }
+
+      .glass-button:active::after {
+        --angle-1: -75deg;
+      }
+
+      .button-shine {
+        position: absolute;
+        inset: 0;
+        border-radius: 999px;
+        width: calc(100% - 1px);
+        height: calc(100% - 1px);
+        top: 0.5px;
+        left: 0.5px;
+        background: linear-gradient(var(--angle-2), rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 40% 50%, rgba(255, 255, 255, 0) 55%);
+        mix-blend-mode: screen;
+        pointer-events: none;
+        background-size: 200% 200%;
+        background-position: 0% 50%;
+        background-repeat: no-repeat;
+        transition: background-position 500ms cubic-bezier(0.25, 1, 0.5, 1), --angle-2 500ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .glass-button:hover .button-shine {
+        background-position: 25% 50%;
+      }
+
+      .glass-button:active .button-shine {
+        background-position: 50% 15%;
+        --angle-2: -15deg;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+    <section class="animate-fade-up w-full my-6 space-y-2" style="animation-delay: 0.6s">
+      <p class="text-base text-neutral-500 font-geist">Trusted by startups that raised millions and globally
+        recognized
+        brands</p>
+
+      <div class="overflow-hidden mask-image-gradient w-full relative gap-x-4 gap-y-4">
+        <!-- Gradient masks for fade effect -->
+        <div class="z-10 bg-gradient-to-r from-neutral-100 to-transparent w-32 h-full absolute top-0 left-0"></div>
+        <div class="bg-gradient-to-l from-neutral-100 to-transparent w-32 h-full z-10 absolute top-0 right-0"></div>
+
+        <div class="flex w-max animate-marquee hover:pause-animation">
+          <!-- Logos Batch 1 -->
+          <div class="flex pr-4 pl-4 items-center gap-x-2 lg:gap-2">
+            <div class="glass-panel flex hover:grayscale-0 transition-all duration-500 spotlight-card bg-neutral-50 w-48 h-24 rounded-2xl grayscale items-center justify-center" onmousemove="handleSpotlight(event)" style="--mouse-x: 111.5px; --mouse-y: 68px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="opacity-80 w-[48px] h-[48px]" data-icon-set="simple-icons" data-simple-icons="logitech" stroke-width="2" data-icon-replaced="true" style="width: 48px; height: 48px; color: rgb(23, 23, 23)">
+                <path fill="currentColor" d="M24 5.098a1.35 1.35 0 0 1-1.35 1.35a1.35 1.35 0 0 1-1.352-1.35a1.35 1.35 0 0 1 1.351-1.351A1.35 1.35 0 0 1 24 5.097zM16.549 18.31a2.29 2.29 0 0 1-2.322-2.322H12.2c0 2.449 1.9 4.264 4.306 4.264s4.348-1.857 4.348-4.264H18.87c-.043 1.351-1.056 2.322-2.322 2.322zm5.108-2.828h1.984V7.377h-1.984zM0 15.483h1.984V4H0zm7.135-8.359c-2.449 0-4.307 1.858-4.307 4.264a4.27 4.27 0 0 0 4.307 4.306c2.406 0 4.306-1.858 4.306-4.264S9.583 7.124 7.135 7.124m0 6.628c-1.31 0-2.322-1.013-2.322-2.364a2.29 2.29 0 0 1 2.322-2.322a2.29 2.29 0 0 1 2.321 2.322c0 1.309-.97 2.364-2.321 2.364m13.635-4.77V7.377h-2.828c-.464-.21-.929-.253-1.393-.253c-2.449 0-4.348 1.858-4.348 4.306s1.9 4.264 4.306 4.264s4.306-1.858 4.306-4.264c0-.844-.254-1.604-.676-2.195zm-4.221 4.77c-1.309 0-2.322-1.013-2.322-2.364a2.29 2.29 0 0 1 2.322-2.322a2.29 2.29 0 0 1 2.322 2.322c0 1.309-1.056 2.364-2.322 2.364" class=""></path>
+              </svg>
+            </div>
+            <div class="glass-panel flex hover:grayscale-0 transition-all duration-500 spotlight-card bg-neutral-50 w-48 h-24 rounded-2xl grayscale items-center justify-center" onmousemove="handleSpotlight(event)" style="--mouse-x: 155.5px; --mouse-y: 75px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="opacity-80 w-[96px] h-[96px]" data-icon-set="simple-icons" data-simple-icons="samsung" stroke-width="2" data-icon-replaced="true" style="width: 96px; height: 96px; color: rgb(23, 23, 23);">
+                <path fill="currentColor" d="m19.817 10.28l.046 2.694h-.023l-.78-2.693h-1.283v3.392h.848l-.046-2.785h.023l.836 2.785h1.227v-3.392zm-16.15 0l-.641 3.428h.928l.47-3.118h.023l.459 3.118h.916l-.63-3.427zm5.181 0l-.424 2.614h-.023l-.424-2.613H6.58l-.069 3.427h.86l.023-3.083h.011l.573 3.083h.871l.573-3.083h.023l.023 3.083h.86l-.08-3.427zm-7.266 2.454a.5.5 0 0 1 .011.252c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332H0v.264c0 .768.607.997 1.25.997c.618 0 1.134-.218 1.214-.78c.046-.298.012-.492 0-.561c-.16-.722-1.467-.929-1.559-1.33a.5.5 0 0 1 0-.183c.023-.115.104-.23.31-.23s.32.127.32.31v.206h.86v-.24c0-.745-.676-.86-1.157-.86c-.608 0-1.112.206-1.204.757a1.04 1.04 0 0 0 .012.458c.137.71 1.364.917 1.536 1.352m11.152 0c.034.08.022.184.011.253c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332h-.917v.264c0 .756.596.985 1.238.985c.619 0 1.123-.206 1.203-.779c.046-.298.012-.481 0-.562c-.137-.71-1.433-.928-1.524-1.318a.5.5 0 0 1 0-.183c.023-.115.103-.23.31-.23c.194 0 .32.127.32.31v.206h.848v-.24c0-.745-.665-.86-1.146-.86c-.607 0-1.1.195-1.192.757c-.023.149-.023.286.012.458c.137.71 1.34.905 1.513 1.352m2.888.459c.24 0 .31-.16.332-.252c.012-.035.012-.092.012-.126V10.28h.87v2.464c0 .069 0 .195-.01.23c-.058.641-.562.847-1.193.847c-.63 0-1.134-.206-1.192-.848c0-.034-.011-.16-.011-.229V10.28h.87v2.533c0 .046 0 .091.012.126c0 .091.07.252.31.252m7.152-.034c.252 0 .332-.16.355-.253c.011-.034.011-.091.011-.126v-.493h-.355v-.504H24v.917c0 .069 0 .115-.011.23c-.058.63-.597.847-1.204.847s-1.146-.217-1.203-.848c-.012-.114-.012-.16-.012-.229v-1.444c0-.057.012-.172.012-.23c.08-.641.596-.847 1.203-.847s1.135.206 1.203.848c.012.103.012.229.012.229v.115h-.86v-.195s0-.08-.011-.126c-.012-.08-.08-.252-.344-.252c-.252 0-.32.16-.344.252c-.011.045-.011.103-.011.16v1.57c0 .046 0 .092.011.126c0 .092.092.253.333.253" class=""></path>
+              </svg>
+            </div>
+            <div class="glass-panel flex hover:grayscale-0 transition-all duration-500 spotlight-card bg-neutral-50 w-48 h-24 rounded-2xl grayscale items-center justify-center" onmousemove="handleSpotlight(event)" style="--mouse-x: 114.5px; --mouse-y: 50px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="lenovo">
+                <path fill="currentColor" d="M21.044 12.288c0 .5-.343.867-.815.867c-.464 0-.827-.38-.827-.867c0-.51.343-.868.815-.868c.464 0 .827.381.827.868m-14.305-.92a.79.79 0 0 0-.651.307a1 1 0 0 0-.172.738l1.479-.614a.71.71 0 0 0-.656-.43zm6.963.052c-.472 0-.816.358-.816.868c0 .486.364.867.828.867c.472 0 .815-.368.815-.867c0-.487-.363-.868-.827-.868M24 7.997v8.006H0V7.997zM5.01 13.05H3.088V9.825H2.23v4.003h2.78zm1.137-.094l2.163-.897a1.67 1.67 0 0 0-.37-.86c-.284-.33-.704-.505-1.216-.505c-.931 0-1.633.686-1.633 1.593c0 .93.704 1.593 1.726 1.593c.572 0 1.158-.272 1.432-.589l-.535-.411c-.357.264-.56.326-.885.326c-.292 0-.52-.09-.682-.25m5.57-1.039c0-.709-.507-1.223-1.252-1.223a1.28 1.28 0 0 0-1.005.494v-.442h-.846v3.081h.846v-1.753c0-.316.245-.651.698-.651c.35 0 .712.243.712.651v1.753h.847zm3.647.37c0-.904-.725-1.593-1.65-1.593c-.933 0-1.663.7-1.663 1.593c0 .903.726 1.592 1.651 1.592c.932 0 1.662-.7 1.662-1.592m2.066 1.54l1.268-3.081h-.967l-.765 2.099l-.765-2.1h-.966l1.268 3.081zm4.449-1.54c0-.904-.725-1.593-1.65-1.593c-.932 0-1.662.7-1.662 1.593c0 .903.725 1.592 1.65 1.592c.932 0 1.662-.7 1.662-1.592" class=""></path>
+              </svg>
+            </div>
+            <div class="glass-panel flex hover:grayscale-0 transition-all duration-500 spotlight-card bg-neutral-50 w-48 h-24 rounded-2xl grayscale items-center justify-center" onmousemove="handleSpotlight(event)" style="--mouse-x: 168.5px; --mouse-y: 68.3125px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="opacity-80 w-[48px] h-[48px]" data-icon-set="simple-icons" data-simple-icons="vercel" stroke-width="2" data-icon-replaced="true" style="width: 48px; height: 48px; color: rgb(23, 23, 23)">
+                <path fill="currentColor" d="m12 1.608l12 20.784H0Z" class=""></path>
+              </svg>
+            </div>
+            <div class="glass-panel flex hover:grayscale-0 transition-all duration-500 spotlight-card bg-neutral-50 w-48 h-24 rounded-2xl grayscale items-center justify-center" onmousemove="handleSpotlight(event)" style="--mouse-x: 125.5px; --mouse-y: 94.3125px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="opacity-80 w-[48px] h-[48px]" data-icon-set="simple-icons" data-simple-icons="stripe" stroke-width="2" data-icon-replaced="true" style="width: 48px; height: 48px; color: rgb(23, 23, 23)">
+                <path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409c0-.831.683-1.305 1.901-1.305c2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0C9.667 0 7.589.654 6.104 1.872C4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219c2.585.92 3.445 1.574 3.445 2.583c0 .98-.84 1.545-2.354 1.545c-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813c1.664-1.305 2.525-3.236 2.525-5.732c0-4.128-2.524-5.851-6.594-7.305z" class=""></path>
+              </svg>
+            </div>
+            <div class="glass-panel flex hover:grayscale-0 transition-all duration-500 spotlight-card w-48 h-24 rounded-2xl grayscale items-center justify-center" onmousemove="handleSpotlight(event)" style="--mouse-x: 62.5px; --mouse-y: 3.3125px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="opacity-80 w-[48px] h-[48px] z-10" data-icon-set="simple-icons" data-simple-icons="notion" stroke-width="2" data-icon-replaced="true" style="width: 48px; height: 48px; color: rgb(23, 23, 23)">
+                <path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514c-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233l4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632" class=""></path>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Logos Batch 2 (Duplicate for loop) -->
+          <div class="flex items-center gap-4 lg:gap-8 px-4">
+            <div class="glass-panel rounded-2xl w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 spotlight-card" onmousemove="handleSpotlight(event)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="logitech">
+                <path fill="currentColor" d="M24 5.098a1.35 1.35 0 0 1-1.35 1.35a1.35 1.35 0 0 1-1.352-1.35a1.35 1.35 0 0 1 1.351-1.351A1.35 1.35 0 0 1 24 5.097zM16.549 18.31a2.29 2.29 0 0 1-2.322-2.322H12.2c0 2.449 1.9 4.264 4.306 4.264s4.348-1.857 4.348-4.264H18.87c-.043 1.351-1.056 2.322-2.322 2.322zm5.108-2.828h1.984V7.377h-1.984zM0 15.483h1.984V4H0zm7.135-8.359c-2.449 0-4.307 1.858-4.307 4.264a4.27 4.27 0 0 0 4.307 4.306c2.406 0 4.306-1.858 4.306-4.264S9.583 7.124 7.135 7.124m0 6.628c-1.31 0-2.322-1.013-2.322-2.364a2.29 2.29 0 0 1 2.322-2.322a2.29 2.29 0 0 1 2.321 2.322c0 1.309-.97 2.364-2.321 2.364m13.635-4.77V7.377h-2.828c-.464-.21-.929-.253-1.393-.253c-2.449 0-4.348 1.858-4.348 4.306s1.9 4.264 4.306 4.264s4.306-1.858 4.306-4.264c0-.844-.254-1.604-.676-2.195zm-4.221 4.77c-1.309 0-2.322-1.013-2.322-2.364a2.29 2.29 0 0 1 2.322-2.322a2.29 2.29 0 0 1 2.322 2.322c0 1.309-1.056 2.364-2.322 2.364">
+                </path>
+              </svg>
+            </div>
+            <div class="glass-panel rounded-2xl w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 spotlight-card" onmousemove="handleSpotlight(event)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="samsung">
+                <path fill="currentColor" d="m19.817 10.28l.046 2.694h-.023l-.78-2.693h-1.283v3.392h.848l-.046-2.785h.023l.836 2.785h1.227v-3.392zm-16.15 0l-.641 3.428h.928l.47-3.118h.023l.459 3.118h.916l-.63-3.427zm5.181 0l-.424 2.614h-.023l-.424-2.613H6.58l-.069 3.427h.86l.023-3.083h.011l.573 3.083h.871l.573-3.083h.023l.023 3.083h.86l-.08-3.427zm-7.266 2.454a.5.5 0 0 1 .011.252c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332H0v.264c0 .768.607.997 1.25.997c.618 0 1.134-.218 1.214-.78c.046-.298.012-.492 0-.561c-.16-.722-1.467-.929-1.559-1.33a.5.5 0 0 1 0-.183c.023-.115.104-.23.31-.23s.32.127.32.31v.206h.86v-.24c0-.745-.676-.86-1.157-.86c-.608 0-1.112.206-1.204.757a1.04 1.04 0 0 0 .012.458c.137.71 1.364.917 1.536 1.352m11.152 0c.034.08.022.184.011.253c-.023.114-.103.229-.332.229c-.218 0-.344-.126-.344-.31v-.332h-.917v.264c0 .756.596.985 1.238.985c.619 0 1.123-.206 1.203-.779c.046-.298.012-.481 0-.562c-.137-.71-1.433-.928-1.524-1.318a.5.5 0 0 1 0-.183c.023-.115.103-.23.31-.23c.194 0 .32.127.32.31v.206h.848v-.24c0-.745-.665-.86-1.146-.86c-.607 0-1.1.195-1.192.757c-.023.149-.023.286.012.458c.137.71 1.34.905 1.513 1.352m2.888.459c.24 0 .31-.16.332-.252c.012-.035.012-.092.012-.126V10.28h.87v2.464c0 .069 0 .195-.01.23c-.058.641-.562.847-1.193.847c-.63 0-1.134-.206-1.192-.848c0-.034-.011-.16-.011-.229V10.28h.87v2.533c0 .046 0 .091.012.126c0 .091.07.252.31.252m7.152-.034c.252 0 .332-.16.355-.253c.011-.034.011-.091.011-.126v-.493h-.355v-.504H24v.917c0 .069 0 .115-.011.23c-.058.63-.597.847-1.204.847s-1.146-.217-1.203-.848c-.012-.114-.012-.16-.012-.229v-1.444c0-.057.012-.172.012-.23c.08-.641.596-.847 1.203-.847s1.135.206 1.203.848c.012.103.012.229.012.229v.115h-.86v-.195s0-.08-.011-.126c-.012-.08-.08-.252-.344-.252c-.252 0-.32.16-.344.252c-.011.045-.011.103-.011.16v1.57c0 .046 0 .092.011.126c0 .092.092.253.333.253">
+                </path>
+              </svg>
+            </div>
+            <div class="glass-panel rounded-2xl w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 spotlight-card" onmousemove="handleSpotlight(event)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="lenovo">
+                <path fill="currentColor" d="M21.044 12.288c0 .5-.343.867-.815.867c-.464 0-.827-.38-.827-.867c0-.51.343-.868.815-.868c.464 0 .827.381.827.868m-14.305-.92a.79.79 0 0 0-.651.307a1 1 0 0 0-.172.738l1.479-.614a.71.71 0 0 0-.656-.43zm6.963.052c-.472 0-.816.358-.816.868c0 .486.364.867.828.867c.472 0 .815-.368.815-.867c0-.487-.363-.868-.827-.868M24 7.997v8.006H0V7.997zM5.01 13.05H3.088V9.825H2.23v4.003h2.78zm1.137-.094l2.163-.897a1.67 1.67 0 0 0-.37-.86c-.284-.33-.704-.505-1.216-.505c-.931 0-1.633.686-1.633 1.593c0 .93.704 1.593 1.726 1.593c.572 0 1.158-.272 1.432-.589l-.535-.411c-.357.264-.56.326-.885.326c-.292 0-.52-.09-.682-.25m5.57-1.039c0-.709-.507-1.223-1.252-1.223a1.28 1.28 0 0 0-1.005.494v-.442h-.846v3.081h.846v-1.753c0-.316.245-.651.698-.651c.35 0 .712.243.712.651v1.753h.847zm3.647.37c0-.904-.725-1.593-1.65-1.593c-.933 0-1.663.7-1.663 1.593c0 .903.726 1.592 1.651 1.592c.932 0 1.662-.7 1.662-1.592m2.066 1.54l1.268-3.081h-.967l-.765 2.099l-.765-2.1h-.966l1.268 3.081zm4.449-1.54c0-.904-.725-1.593-1.65-1.593c-.932 0-1.662.7-1.662 1.593c0 .903.725 1.592 1.65 1.592c.932 0 1.662-.7 1.662-1.592">
+                </path>
+              </svg>
+            </div>
+            <div class="glass-panel rounded-2xl w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 spotlight-card" onmousemove="handleSpotlight(event)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="vercel">
+                <path fill="currentColor" d="m12 1.608l12 20.784H0Z"></path>
+              </svg>
+            </div>
+            <div class="glass-panel rounded-2xl w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 spotlight-card" onmousemove="handleSpotlight(event)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="stripe">
+                <path fill="currentColor" d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409c0-.831.683-1.305 1.901-1.305c2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0C9.667 0 7.589.654 6.104 1.872C4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219c2.585.92 3.445 1.574 3.445 2.583c0 .98-.84 1.545-2.354 1.545c-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813c1.664-1.305 2.525-3.236 2.525-5.732c0-4.128-2.524-5.851-6.594-7.305z">
+                </path>
+              </svg>
+            </div>
+            <div class="glass-panel rounded-2xl w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-500 spotlight-card" onmousemove="handleSpotlight(event)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" class="text-neutral-900 opacity-80" style="" data-icon-set="simple-icons" data-simple-icons="notion">
+                <path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514c-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233l4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="lg:col-span-4 flex flex-col animate-clip-in bg-stone-50 border-stone-200 border rounded-3xl pt-2 pr-2 pb-2 pl-2 space-y-8 gap-x-12 gap-y-12 justify-between" style="animation-delay: 0.5s; height:fit-content">
+
+  <div class="aspect-[16/9] overflow-hidden w-full border-stone-200 border rounded-2xl relative gap-x-12 gap-y-12" style="padding:176.75% 0 0 0;position:relative">
+  <iframe src="https://player.vimeo.com/video/1147300181?autoplay=1&amp;muted=1&amp;loop=1&amp;controls=0&amp;transparent=0&amp;title=0&amp;byline=0&amp;portrait=0" class="absolute inset-0 h-full w-full border-0 rounded-2xl" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Start agency template" data-ready="true"></iframe>
+</div>
+  <script src="https://player.vimeo.com/api/player.js" class=""></script>
+
+
+</div>
+</section>
+
+  <!-- Social Proof Marquee -->
+
+
+  <!-- Featured Work: 3D Carousel -->
+  <section class="animate-fade-up w-full pt-12 pb-12 relative" style="animation-delay: 0.8s">
+    <div class="flex mb-12 pr-2 pl-2 items-end justify-between">
+      <h2 class="lg:text-5xl text-4xl font-medium text-neutral-900 tracking-tight font-geist" style="">Featured Work
+      </h2>
+      <div class="flex gap-4">
+        <button onclick="rotateCarousel(-1)" class="w-12 h-12 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-white hover:border-neutral-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="text-xl" style="" data-icon-set="solar" data-solar="arrow-left-linear"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 12H4m0 0l6-6m-6 6l6 6"></path></svg>
+                        </button>
+        <button onclick="rotateCarousel(1)" class="w-12 h-12 rounded-full border border-neutral-300 flex items-center justify-center hover:bg-white hover:border-neutral-400 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="text-xl" style="" data-icon-set="solar" data-solar="arrow-right-linear"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12h16m0 0l-6-6m6 6l-6 6"></path></svg>
+                        </button>
+      </div>
+    </div>
+
+    <div class="carousel-container flex w-full h-[500px] relative items-center justify-center">
+
+      <!-- Card 1 -->
+      <div class="carousel-card active lg:w-3/4 glass-panel spotlight-card cursor-pointer w-full h-full rounded-3xl pt-2 pr-2 pb-2 pl-2" id="card-0" onmousemove="handleSpotlight(event)" style="--mouse-x: 909.5px; --mouse-y: 274.96875px;">
+        <div class="w-full h-full bg-neutral-50 rounded-2xl overflow-hidden relative group">
+          <!-- Mock UI Content -->
+          <div class="absolute top-6 left-6 right-6 flex justify-between items-center z-20">
+            <span class="bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium border border-black/5 font-geist" style="">Fintech Dashboard</span>
+
+          </div>
+          <div class="flex bg-gradient-to-br from-neutral-100 to-neutral-200 w-full h-full gap-x-4 gap-y-4 items-center justify-center">
+            <div class="flex flex-col gap-4 transform group-hover:scale-[1.02] transition-transform duration-500 bg-center bg-white w-[80%] h-[70%] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c053fe9-7127-4df7-ae87-36ae206fe067_1600w.jpg)] bg-cover border-neutral-100 border rounded-xl pt-6 pr-6 pb-6 pl-6 shadow-2xl gap-x-4 gap-y-4">
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="carousel-card next lg:w-3/4 glass-panel spotlight-card cursor-pointer w-full h-full rounded-3xl pt-2 pr-2 pb-2 pl-2 gap-x-4 gap-y-4" onmousemove="handleSpotlight(event)" style="--mouse-x: 4.7427978515625px; --mouse-y: 141.655029296875px;" id="card-1">
+        <div class="w-full h-full bg-neutral-50 rounded-2xl overflow-hidden relative group">
+          <div class="absolute top-6 left-6 right-6 flex justify-between items-center z-20">
+            <span class="bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium border border-black/5 font-geist" style="">Mobile Health App</span>
+          </div>
+          <div class="flex bg-gradient-to-bl from-blue-50 to-neutral-100 w-full h-full items-center justify-center">
+            <div class="flex flex-col transform group-hover:scale-[1.02] transition-transform duration-500 bg-center bg-white w-[40%] h-[80%] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0851aedf-fdcc-48be-8ea0-cd63cc04fcda_800w.jpg)] bg-cover border-neutral-100 border rounded-xl pt-4 pr-4 pb-4 pl-4 shadow-2xl">
+
+
+
+              <div class="mt-auto flex justify-between">
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="carousel-card prev w-full lg:w-3/4 h-full glass-panel rounded-3xl p-2 spotlight-card cursor-pointer" id="card-2" onmousemove="handleSpotlight(event)" style="--mouse-x: 742.219482421875px; --mouse-y: 99.342529296875px;">
+        <div class="w-full h-full bg-neutral-50 rounded-2xl overflow-hidden relative group">
+          <div class="absolute top-6 left-6 right-6 flex justify-between items-center z-20">
+            <span class="bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium border border-black/5 font-geist" style="">SaaS Analytics</span>
+          </div>
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-orange-50 to-neutral-100">
+            <div class="transform group-hover:scale-[1.02] transition-transform duration-500 flex bg-white w-[80%] h-[70%] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/51dd450a-0485-4587-89d8-c6078fb01266_1600w.jpg)] bg-cover bg-center border-neutral-100 border rounded-xl pt-6 pr-6 pb-6 pl-6 shadow-2xl gap-x-2 gap-y-2 items-end">
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="animate-fade-up w-full pt-12 pb-12" style="animation-delay: 0.1s">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-stone-50 border-stone-200 border rounded-3xl pt-2 pr-2 pb-2 pl-2 gap-x-2 gap-y-4">
+      <!-- Metric 1 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
+        <h3 class="text-2xl font-medium text-neutral-900 tracking-tight mb-2 font-geist" style="">10 years</h3>
+        <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">Designing inside real startups, not
+          from the outside.
+        </p>
+      </div>
+      <!-- Metric 2 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
+        <h3 class="text-2xl font-medium text-neutral-900 tracking-tight mb-2 font-geist" style="">300+ websites</h3>
+        <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">SaaS, fintech, AI, consumer, B2B.
+        </p>
+      </div>
+      <!-- Metric 3 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
+        <h3 class="text-2xl font-medium text-neutral-900 tracking-tight mb-2 font-geist" style="">$S 10 mil value</h3>
+        <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">Across companies we’ve helped design
+          and launch.</p>
+      </div>
+      <!-- Metric 4 -->
+      <div class="bg-white p-6 rounded-2xl border border-neutral-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
+        <h3 class="text-2xl font-medium text-neutral-900 tracking-tight mb-2 font-geist" style="">80% clients return
+        </h3>
+        <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">Because good collaboration beats
+          good decks.</p>
+      </div>
+    </div>
+  </section>
+  <section class="animate-scaleIn animation-delay-300 sm:pl-2 sm:pr-2 sm:pt-2 sm:pb-2 bg-stone-50 w-full max-w-none z-10 border-stone-200 border rounded-3xl pt-6 pr-6 pb-6 pl-6 relative shadow-2xl">
+    <!-- Header -->
+    <div class="flex animate-fadeInUp sm:pt-6 sm:pr-6 sm:pb-6 sm:pl-6 pt-6 pr-1 pb-6 pl-1 gap-x-6 gap-y-6 items-center">
+      <h2 class="text-[44px] leading-[0.9] sm:text-6xl lg:text-7xl xl:text-5xl text-zinc-950 tracking-tighter font-geist">
+        How we works</h2>
+      <span aria-hidden="true" role="separator" aria-orientation="vertical" class="w-px bg-neutral-200 h-10"></span>
+      <p class="sm:text-base text-sm text-zinc-950 tracking-tight font-geist mt-1">Three simple steps to
+        automate
+        your content</p>
+    </div>
+
+
+    <div class="grid grid-cols-1 z-10 mt-6 relative items-stretch gap-x-2 lg:grid-cols-12 sm:gap-2 sm:mt-8">
+      <!-- STEP 1 -->
+      <div class="lg:col-span-4 sm:p-8 hover-lift flex flex-col bg-white h-full border-neutral-200 border rounded-2xl pt-6 pr-6 pb-6 pl-6 relative">
+        <span class="absolute -top-4 left-6 inline-flex items-center px-4 py-1.5 rounded-full border border-neutral-200 bg-white text-xs sm:text-sm text-neutral-800 tracking-tight font-geist" style="">STEP 1</span>
+        <!-- Visual -->
+        <div class="relative h-48 sm:h-56 rounded-2xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="absolute inset-0 p-4 sm:p-6">
+            <!-- Content brief interface mockup -->
+            <div class="bg-white/90 border border-neutral-200 rounded-xl p-4 w-full shadow-2xl">
+              <div class="flex items-center gap-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-600">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" class=""></path>
+                  <polyline points="14,2 14,8 20,8" class=""></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13" class=""></line>
+                  <line x1="16" y1="17" x2="8" y2="17" class=""></line>
+                  <polyline points="10,9 9,9 8,9" class=""></polyline>
+                </svg>
+                <div class="h-2 w-24 bg-neutral-900 rounded"></div>
+              </div>
+              <div class="h-2 w-full bg-neutral-100 rounded mb-2"></div>
+              <div class="h-2 w-4/5 bg-neutral-100 rounded mb-2"></div>
+              <div class="h-2 w-3/4 bg-neutral-100 rounded mb-3"></div>
+              <div class="flex gap-2">
+                <div class="h-6 w-16 bg-emerald-100 rounded-lg flex items-center justify-center">
+                  <div class="h-1 w-8 bg-emerald-600 rounded"></div>
+                </div>
+                <div class="h-6 w-20 bg-neutral-100 rounded-lg"></div>
+              </div>
+            </div>
+            <!-- AI processing indicator -->
+
+          </div>
+        </div>
+        <!-- Copy -->
+        <h3 class="sm:text-4xl text-3xl text-neutral-900 tracking-tighter mt-6 font-geist" style="">Kickoff &amp;
+          alignment</h3>
+        <p class="sm:text-base text-sm text-neutral-600 tracking-tight max-w-[52ch] mt-2 font-geist" style="">Goals,
+          constraints,
+          timelines. No guessing.</p>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="lg:col-span-4 sm:p-8 hover-lift flex flex-col bg-white h-full border-neutral-200 border rounded-2xl pt-6 pr-6 pb-6 pl-6 relative">
+        <span class="absolute -top-4 left-6 inline-flex items-center px-4 py-1.5 rounded-full border border-neutral-200 bg-white text-xs sm:text-sm text-neutral-800 tracking-tight font-geist" style="">STEP 2</span>
+        <!-- Visual -->
+        <div class="relative h-48 sm:h-56 rounded-2xl border border-neutral-200 overflow-hidden bg-gradient-to-br from-neutral-50 to-neutral-100 p-4">
+          <div class="grid grid-cols-2 gap-3 h-full">
+            <!-- Content variations -->
+            <div class="bg-white border border-neutral-200 rounded-lg p-3 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" class=""></path>
+                </svg>
+                <div class="h-1.5 w-12 bg-blue-600 rounded"></div>
+              </div>
+              <div class="space-y-1">
+                <div class="h-1 w-full bg-neutral-200 rounded"></div>
+                <div class="h-1 w-4/5 bg-neutral-200 rounded"></div>
+                <div class="h-1 w-3/4 bg-neutral-200 rounded"></div>
+              </div>
+            </div>
+            <div class="bg-white border border-neutral-200 rounded-lg p-3 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600">
+                  <rect width="20" height="14" x="2" y="3" rx="2" ry="2" class=""></rect>
+                  <line x1="8" y1="21" x2="16" y2="21" class=""></line>
+                  <line x1="12" y1="17" x2="12" y2="21" class=""></line>
+                </svg>
+                <div class="h-1.5 w-10 bg-emerald-600 rounded"></div>
+              </div>
+              <div class="space-y-1">
+                <div class="h-1 w-full bg-neutral-200 rounded"></div>
+                <div class="h-1 w-5/6 bg-neutral-200 rounded"></div>
+                <div class="h-1 w-2/3 bg-neutral-200 rounded"></div>
+              </div>
+            </div>
+            <div class="bg-white border border-neutral-200 rounded-lg p-3 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" class=""></path>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" class=""></path>
+                </svg>
+                <div class="h-1.5 w-14 bg-purple-600 rounded"></div>
+              </div>
+              <div class="space-y-1">
+                <div class="h-1 w-full bg-neutral-200 rounded"></div>
+                <div class="h-1 w-4/5 bg-neutral-200 rounded"></div>
+                <div class="h-1 w-3/5 bg-neutral-200 rounded"></div>
+              </div>
+            </div>
+            <div class="bg-white border border-neutral-200 rounded-lg p-3 shadow-sm">
+              <div class="flex items-center gap-2 mb-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-600">
+                  <path d="M4 4l11.733 16h4.267l-11.733-16z" class=""></path>
+                  <path d="M4 20l6.768-6.768m2.46-2.46l6.772-6.772" class=""></path>
+                </svg>
+                <div class="h-1.5 w-8 bg-orange-600 rounded"></div>
+              </div>
+              <div class="space-y-1">
+                <div class="h-1 w-full bg-neutral-200 rounded"></div>
+                <div class="h-1 w-3/4 bg-neutral-200 rounded"></div>
+                <div class="h-1 w-4/5 bg-neutral-200 rounded"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Processing indicator -->
+
+        </div>
+        <!-- Copy -->
+        <h3 class="sm:text-4xl text-3xl text-neutral-900 tracking-tighter mt-6 font-geist" style="">Design &amp;
+          iteration</h3>
+        <p class="sm:text-base text-sm text-neutral-600 tracking-tight max-w-[52ch] mt-2 font-geist" style="">Fast
+          cycles,
+          constant
+          feedback, real collaboration.</p>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="lg:col-span-4 sm:p-8 hover-lift flex flex-col bg-white h-full border-neutral-200 border rounded-2xl pt-6 pr-6 pb-6 pl-6 relative">
+        <span class="absolute -top-4 left-6 inline-flex items-center px-4 py-1.5 rounded-full border border-neutral-200 bg-white text-xs sm:text-sm text-neutral-800 tracking-tight font-geist" style="">STEP 3</span>
+        <!-- Visual -->
+        <div class="relative h-48 sm:h-56 rounded-2xl bg-neutral-100 border border-neutral-200 overflow-hidden p-4">
+          <div class="w-full h-full rounded-xl overflow-hidden bg-white border border-neutral-200 p-3">
+            <!-- Dashboard mockup -->
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-emerald-100 rounded-lg flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-600">
+                    <path d="M3 3v5h5" class=""></path>
+                    <path d="M21 12A9 9 0 0 0 6 2.3L3 8" class=""></path>
+                    <path d="M21 21v-5h-5" class=""></path>
+                    <path d="M3 12a9 9 0 0 0 15 6.7L21 16" class=""></path>
+                  </svg>
+                </div>
+                <div class="h-2 w-16 bg-neutral-900 rounded"></div>
+              </div>
+              <div class="w-4 h-4 bg-green-400 rounded-full"></div>
+            </div>
+            <!-- Channel distribution -->
+            <div class="grid grid-cols-3 gap-2 mb-3">
+              <div class="bg-blue-50 border border-blue-200 rounded p-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-600 mb-1">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" class=""></path>
+                </svg>
+                <div class="h-1 w-8 bg-blue-600 rounded mx-auto"></div>
+              </div>
+              <div class="bg-emerald-50 border border-emerald-200 rounded p-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-emerald-600 mb-1">
+                  <rect width="20" height="16" x="2" y="4" rx="2" class=""></rect>
+                  <path d="M6 8l6 4 6-4" class=""></path>
+                </svg>
+                <div class="h-1 w-6 bg-emerald-600 rounded mx-auto"></div>
+              </div>
+              <div class="bg-purple-50 border border-purple-200 rounded p-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-purple-600 mb-1">
+                  <rect width="20" height="14" x="2" y="3" rx="2" ry="2" class=""></rect>
+                  <line x1="8" y1="21" x2="16" y2="21" class=""></line>
+                  <line x1="12" y1="17" x2="12" y2="21" class=""></line>
+                </svg>
+                <div class="h-1 w-10 bg-purple-600 rounded mx-auto"></div>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 mb-3">
+              <div class="bg-blue-50 border border-blue-200 rounded p-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-blue-600 mb-1">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" class=""></path>
+                </svg>
+                <div class="h-1 w-8 bg-blue-600 rounded mx-auto"></div>
+              </div>
+              <div class="text-center bg-emerald-50 border-emerald-200 border rounded pt-2 pr-2 pb-2 pl-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-emerald-600 mb-1">
+                  <rect width="20" height="16" x="2" y="4" rx="2" class=""></rect>
+                  <path d="M6 8l6 4 6-4" class=""></path>
+                </svg>
+                <div class="h-1 w-6 bg-emerald-600 rounded mx-auto"></div>
+              </div>
+              <div class="bg-purple-50 border border-purple-200 rounded p-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-purple-600 mb-1">
+                  <rect width="20" height="14" x="2" y="3" rx="2" ry="2" class=""></rect>
+                  <line x1="8" y1="21" x2="16" y2="21" class=""></line>
+                  <line x1="12" y1="17" x2="12" y2="21" class=""></line>
+                </svg>
+                <div class="h-1 w-10 bg-purple-600 rounded mx-auto"></div>
+              </div>
+            </div>
+            <!-- Analytics chart -->
+
+          </div>
+        </div>
+        <!-- Copy -->
+        <h3 class="sm:text-4xl text-3xl text-neutral-900 tracking-tighter mt-6 font-geist" style="">Delivery &amp;
+          handoff</h3>
+        <p class="sm:text-base text-sm text-neutral-600 tracking-tight max-w-[52ch] mt-2 font-geist" style="">Clean
+          files, clear
+          logic, dev-ready output.</p>
+      </div>
+    </div>
+  </section>
+  <div class="flex flex-col z-10 w-full mt-20 mr-auto mb-20 ml-auto relative">
+
+    <!-- Top Feature Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12 mb-4 gap-x-4 gap-y-4">
+
+      <!-- Feature 1 -->
+      <div class="flex flex-col gap-4 gap-x-4 gap-y-4">
+        <div class="text-zinc-100">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" class="w-[28px] h-[28px]" stroke-width="2" data-icon-replaced="true" style="width: 28px; height: 28px; color: #999999">
+            <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2" opacity=".5" class="">
+            </path>
+            <path fill="currentColor" d="M12 6a1 1 0 0 1 1 1v4.586l2.707 2.707a1 1 0 0 1-1.414 1.414l-3-3A1 1 0 0 1 11 12V7a1 1 0 0 1 1-1" class="">
+            </path>
+          </svg>
+        </div>
+        <p class="leading-relaxed text-base text-zinc-900 font-geist" style="">
+          Your learning path adapts based on progress and skill assessments.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="flex flex-col gap-4 gap-x-4 gap-y-4">
+        <div class="text-zinc-100">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" class="w-[28px] h-[28px]" stroke-width="2" data-icon-replaced="true" style="width: 28px; height: 28px; color: #999">
+            <path fill="currentColor" d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12" opacity=".5" class=""></path>
+            <path fill="currentColor" d="M12 7.75a.75.75 0 0 1 .75.75v3.69l2.28 2.28a.75.75 0 1 1-1.06 1.06l-2.5-2.5a.75.75 0 0 1-.22-.53V8.5a.75.75 0 0 1 .75-.75" class="">
+            </path>
+          </svg>
+        </div>
+        <p class="leading-relaxed text-base font-medium text-zinc-900 font-normal font-geist" style="">
+          The system knows when to push or hold back — based on mastery zones.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="flex flex-col gap-4">
+        <div class="text-zinc-900">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" class="w-[28px] h-[28px]" stroke-width="2" data-icon-replaced="true" style="width: 28px; height: 28px; color: #999">
+            <path fill="currentColor" d="M12 22c-4.714 0-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2s7.071 0 8.535 1.464C22 4.93 22 7.286 22 12s0 7.071-1.465 8.535C19.072 22 16.714 22 12 22" opacity=".5" class=""></path>
+            <path fill="currentColor" d="M16.03 8.97a.75.75 0 0 1 0 1.06l-5 5a.75.75 0 0 1-1.06 0l-2-2a.75.75 0 1 1 1.06-1.06l1.47 1.47l4.47-4.47a.75.75 0 0 1 1.06 0" class="">
+            </path>
+          </svg>
+        </div>
+        <p class="leading-relaxed text-base font-medium text-zinc-900 font-normal font-geist" style="">
+          No more switching platforms. Theory, practice, and labs unified.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="flex flex-col gap-4">
+        <div class="text-zinc-900">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="28" height="28" viewBox="0 0 24 24" class="w-[28px] h-[28px]" stroke-width="2" data-icon-replaced="true" style="color: #999; width: 28px; height: 28px;">
+            <path fill="currentColor" d="M19.83 8.7L12 2.1a.08.08 0 0 0-.07 0L4.17 8.7A1 1 0 0 0 4 9.6V20a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.6a1 1 0 0 0-.17-.9" opacity=".5" class=""></path>
+            <path fill="currentColor" d="M12.75 18a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 1.5 0z" class=""></path>
+          </svg>
+        </div>
+        <p class="leading-relaxed text-base font-medium text-zinc-900 font-normal font-geist" style="">
+          Portfolio, skills, and credentials tracked. Always know your value.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Main CTA Card -->
+    <div class="overflow-hidden min-h-[500px] lg:min-h-[600px] shadow-zinc-900/30 bg-zinc-900 rounded-[2rem] relative shadow-2xl">
+
+      <!-- Grid Pattern Overlay -->
+      <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 40px 40px;">
+      </div>
+
+      <!-- Content Container -->
+      <div class="grid grid-cols-1 min-h-[500px] h-full relative gap-y-3 lg:grid-cols-1 lg:min-h-[600px]">
+
+        <!-- Left: Text Content -->
+        <div class="flex flex-col md:p-12 lg:p-16 bg-center bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a5387a0b-52c6-40c2-b3be-ef86329b19cc_1600w.webp)] bg-cover pt-8 pr-8 pb-8 pl-8 saturate-50 justify-center">
+          <p class="leading-relaxed text-base font-medium text-zinc-50 mb-2 font-geist" style="">Case study - Workly
+          </p>
+          <h2 class="leading-tight md:text-4xl lg:text-5xl text-2xl font-normal text-white tracking-tight mb-8 font-geist" style="">
+            Redesigned
+            product UX and brand positioning after poor early adoption.
+            Result: clearer value proposition, higher retention, stronger sales demos.</h2>
+
+          <button class="group flex items-center gap-3 bg-white hover:bg-zinc-100 transition-all text-zinc-900 text-sm font-medium rounded-full px-6 py-3 w-fit shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                    <span class="font-geist" style="">Read more</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14" class=""></path><path d="m12 5 7 7-7 7" class=""></path></svg>
+                </button>
+
+          <!-- Trusted By -->
+          <div class="mt-12 pt-8 border-t border-white/10">
+            <p class="text-xs text-white/50 uppercase tracking-widest mb-4 font-medium font-geist" style="">Trusted by
+              teams at
+            </p>
+            <div class="flex flex-wrap items-center gap-6 opacity-60">
+              <!-- Coinbase -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="100" height="20" viewBox="0 0 512 127.964" style="color: rgb(255, 255, 255); width: 100px; height: 20px;" class="w-[100px] h-[20px]" data-logos="linear" data-icon-set="logos" data-icon-replaced="true" stroke-width="2">
+                <path fill="#ffffff" d="m4.086 51.292l72.586 72.587c1.06 1.06.549 2.859-.924 3.134a64 64 0 0 1-7.508.947a1.9 1.9 0 0 1-1.46-.554L.558 61.184a1.9 1.9 0 0 1-.554-1.46c.17-2.546.489-5.051.948-7.507c.275-1.473 2.074-1.984 3.134-.925M2.04 80.682c-.484-1.806 1.65-2.946 2.973-1.623l43.893 43.893c1.322 1.322.183 3.457-1.624 2.972c-22.009-5.9-39.34-23.233-45.242-45.242m6.362-48.609c.616-1.067 2.073-1.23 2.945-.36l84.904 84.905c.871.871.708 2.328-.36 2.945a64 64 0 0 1-5.548 2.851a1.885 1.885 0 0 1-2.11-.394L5.945 39.732a1.885 1.885 0 0 1-.395-2.11a64 64 0 0 1 2.852-5.549M63.912 0c35.375 0 64.052 28.677 64.052 64.052c0 18.78-8.081 35.672-20.957 47.387c-.743.677-1.883.632-2.594-.079L16.604 23.551a1.88 1.88 0 0 1-.079-2.594C28.241 8.082 45.133 0 63.912 0m194.14 35.248c4.591 0 8.313-3.735 8.313-8.343s-3.722-8.343-8.313-8.343c-4.59 0-8.312 3.735-8.312 8.343c0 4.507 3.561 8.18 8.014 8.338zm-71.202 72.761V18.567h14.773v76.356h39.83v13.086zm105.144-36.497v36.497H277.7V44.62h14.115v10.865l.179-.12q2.153-5.102 6.938-8.524q4.784-3.482 12.201-3.482q6.578 0 11.961 2.942q5.383 2.88 8.612 8.464q3.23 5.583 3.23 13.686v39.56h-14.294V70.43q0-7.203-3.828-10.925q-3.766-3.781-10.108-3.782q-4.066 0-7.415 1.681q-3.35 1.68-5.323 5.163q-1.974 3.48-1.974 8.944m147.608-28.154q5.98 0 10.764 1.561q4.786 1.5 8.134 4.322q3.41 2.821 5.204 6.664q1.793 3.84 1.794 8.464v43.64h-13.696v-8.944h-.239q-1.435 2.701-3.888 4.982q-2.392 2.282-6.1 3.662q-3.708 1.32-8.912 1.32q-6.338 0-11.243-2.1q-4.904-2.16-7.775-6.363q-2.87-4.263-2.87-10.565q0-5.463 2.033-8.944a15.7 15.7 0 0 1 5.502-5.583q3.529-2.1 8.014-3.182q4.485-1.08 9.33-1.62l2.647-.301q4.076-.472 6.684-.84q3.467-.48 4.904-1.5q1.494-1.022 1.495-3.182v-.48q0-2.881-1.436-5.043q-1.436-2.16-4.126-3.421q-2.632-1.26-6.4-1.261t-6.638 1.26q-2.871 1.2-4.546 3.362a9.16 9.16 0 0 0-1.914 4.922h-13.816q.3-5.882 3.648-10.565q3.35-4.681 9.271-7.443q5.981-2.822 14.175-2.822m11.84 34.037q-.582.426-1.783.806l-.31.094q-1.374.42-3.348.84l-4.246.78q-2.274.361-4.666.721q-3.29.42-6.1 1.501t-4.546 2.941q-1.674 1.86-1.674 4.863q0 3.84 3.05 6.063q3.05 2.16 8.195 2.16q5.082 0 8.552-1.86q3.468-1.92 5.142-4.983q1.735-3.12 1.735-6.843zm26.527 30.614V44.62h13.755v10.445h.18q1.735-5.403 5.442-8.224q3.768-2.88 9.869-2.881q1.496 0 2.69.12l1.49.08q.326.02.605.04v12.906l-.322-.046a67 67 0 0 0-2.429-.254a46 46 0 0 0-4.187-.18q-3.529 0-6.46 1.62q-2.93 1.622-4.664 4.983q-1.675 3.301-1.675 8.344v36.437zm-227.094 0V44.62h14.294v63.39zM374.38 43.18q6.758 0 12.26 2.4q5.564 2.401 9.51 6.844q3.947 4.382 6.1 10.445q2.153 6.003 2.154 13.326v3.842h-45.976q.165 4.962 1.957 8.884q1.974 4.263 5.742 6.663q3.827 2.402 9.15 2.402q3.947 0 6.938-1.201q2.99-1.2 4.963-3.302a12.9 12.9 0 0 0 2.932-4.982h13.456q-1.196 6.183-5.203 10.925q-4.007 4.683-10.048 7.384q-5.98 2.64-13.277 2.641q-9.45 0-16.328-4.262q-6.877-4.261-10.585-11.706q-3.709-7.503-3.709-17.108q0-9.665 3.828-17.168T358.83 47.44q6.76-4.261 15.55-4.262m.179 11.525q-4.904 0-8.553 2.221q-3.586 2.22-5.62 6.303q-1.452 2.956-1.836 6.723h32.078q-.384-3.766-1.834-6.723q-1.974-4.082-5.622-6.303q-3.649-2.22-8.613-2.221" class="">
+                </path>
+              </svg>
+              <!-- Chainlink -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="20" viewBox="0 0 512 99" style="color: rgb(255, 255, 255); width: 80px; height: 20px;" class="w-[80px] h-[20px]" data-logos="zendesk" data-icon-set="logos" data-icon-replaced="true" stroke-width="2">
+                <path fill="#ffffff" d="M340.962 29.149c21.899 0 34.319 16.728 33.204 39.946h-51.657c1.49 9.834 10.433 16.77 20.328 15.765a25.35 25.35 0 0 0 18.199-7.097l9.023 9.784a35.5 35.5 0 0 1-27.12 10.747c-22.052 0-36.297-14.701-36.297-34.573a33.81 33.81 0 0 1 34.32-34.572m-236.382 0c21.9 0 34.319 16.728 33.204 39.946H86.178c1.49 9.812 10.4 16.74 20.277 15.765a25.35 25.35 0 0 0 18.2-7.097l9.023 9.784a35.5 35.5 0 0 1-27.121 10.747c-22.052 0-36.296-14.701-36.296-34.573A33.81 33.81 0 0 1 104.58 29.15m333.51 12.42l-11.812 6.894a17.13 17.13 0 0 0-14.853-7.554c-7.553 0-11.406 3.7-11.406 7.96c0 4.257 6.083 6.082 15.664 8.211l.656.145l.658.148q.495.111.991.229l.662.158q.331.08.663.163l.663.168l.661.174c9.364 2.507 18.264 6.865 18.264 18.586c0 9.175-7.96 21.494-26.817 21.392a31.02 31.02 0 0 1-29.098-15.36l12.724-6.843a18.91 18.91 0 0 0 16.982 9.682c7.96 0 12.065-4.106 12.065-8.77s-7.705-6.489-16.07-8.212l-.678-.145l-.679-.148l-.34-.076l-.678-.154c-10.504-2.427-20.588-6.518-20.588-19.247c0-10.494 10.138-20.278 25.65-20.278a30.42 30.42 0 0 1 26.716 12.876M293.31 0v96.925h-14.093V87.8a28.24 28.24 0 0 1-22.152 10.494a33.41 33.41 0 0 1-33.103-34.573A33.103 33.103 0 0 1 257.166 29.2a28.59 28.59 0 0 1 22.051 10.139V0zM58.297 30.77v12.978L18.452 84.303h40.555v12.774H0V84.15l39.845-40.554H.912V30.771zM464.399 0v63.468l29.858-33.052h17.135l-25.904 28.439L512 96.925h-15.867l-20.581-29.453l-11.153 12.218v17.286h-14.092V0zM182.09 29.2c16.73 0 30.822 10.898 30.822 28.945v38.78h-14.498V59.92c0-10.848-5.272-17.388-15.918-17.388a15.715 15.715 0 0 0-16.78 17.388v37.006H151.37v-38.78c0-18.047 13.99-28.946 30.72-28.946m76.902 13.534c-11.59 0-20.987 9.396-20.987 20.987s9.396 20.987 20.987 20.987s20.987-9.396 20.987-20.987s-9.396-20.987-20.987-20.987m63.468 15.259l36.144.05c-.491-9.14-8.298-16.153-17.439-15.664c-9.38-.55-17.57 6.287-18.705 15.614m-236.28 0l36.042.05c-.518-9.12-8.316-16.102-17.438-15.613c-9.325-.498-17.448 6.297-18.605 15.563" class="">
+                </path>
+              </svg>
+              <!-- Uniswap -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="90" height="20" viewBox="0 0 512 89" style="color: rgb(255, 255, 255); width: 90px; height: 20px;" class="w-[90px] h-[20px]" data-logos="apache-superset" data-icon-set="logos" data-icon-replaced="true" stroke-width="2">
+                <path fill="#ffffff" d="M125.807 0c-14.517 0-27.89 8.167-40.814 22.437C72.293 7.943 58.696 0 43.506 0C18.354 0 0 17.95 0 42.115s18.354 41.89 43.506 41.89c15.46 0 27.441-7.247 40.814-21.696c12.924 14.494 26.072 21.742 41.487 21.742c25.152-.045 43.506-17.703 43.506-41.936C169.313 17.883 150.959 0 125.807 0M43.686 58.651c-10.658 0-17.008-7.022-17.008-16.312c0-9.289 6.35-16.514 17.008-16.514c8.975 0 16.312 7.225 24.255 16.963c-7.495 9.065-15.415 15.863-24.255 15.863m81.358 0c-8.84 0-16.312-7.022-24.255-16.312c8.167-9.737 15.19-16.514 24.255-16.514c10.658 0 16.94 7.315 16.94 16.514c0 9.2-6.282 16.312-16.94 16.312" class="">
+                </path>
+                <path fill="#ffffff" d="m103.257 78.015l16.918-20.194c-6.731-2.02-12.946-8.077-19.386-15.594L84.319 62.31a74 74 0 0 0 18.938 15.706M84.993 22.415A76.1 76.1 0 0 0 66.168 6.35l-16.94 20.418c6.44 2.244 12.138 8.032 18.197 15.414l.673.472z" class="">
+                </path>
+                <path fill="#ffffff" d="M222.13 56.453a6.73 6.73 0 0 0-2.378-5.363a24.2 24.2 0 0 0-6.878-3.443l-1.49-.416a47.1 47.1 0 0 1-15.707-7.135a13.47 13.47 0 0 1-5.34-11.219a14 14 0 0 1 6.125-11.712a25.3 25.3 0 0 1 15.706-4.488a23.47 23.47 0 0 1 15.707 5.116a15.33 15.33 0 0 1 5.834 11.486v1.348h-11.354a8.5 8.5 0 0 0-2.715-6.552a10.77 10.77 0 0 0-7.584-2.49c-2.587-.16-5.151.57-7.27 2.064a6.73 6.73 0 0 0-2.557 5.34a5.73 5.73 0 0 0 2.58 4.667a37.7 37.7 0 0 0 9.424 3.972a36.7 36.7 0 0 1 14.629 7.09a14.75 14.75 0 0 1 4.98 10.5l.001 1.1a13.88 13.88 0 0 1-5.923 11.825a25.72 25.72 0 0 1-15.707 4.33a28.45 28.45 0 0 1-16.626-4.914a15.37 15.37 0 0 1-6.938-12.682l.027-1.341h11.645a8.99 8.99 0 0 0 3.187 7.65a14.43 14.43 0 0 0 8.975 2.424c2.582.175 5.151-.52 7.292-1.974a6.25 6.25 0 0 0 2.356-5.183m45.504 8.997a14.7 14.7 0 0 1-5.093 5.25c-5.866 3.25-13.227 2.2-17.95-2.557q-3.86-4.488-3.86-13.642V28.316H252.4v26.32a11.4 11.4 0 0 0 1.593 6.73a5.66 5.66 0 0 0 4.056 2.067l.678-.002c1.654.036 3.294-.27 4.824-.898a8.14 8.14 0 0 0 3.276-2.692V28.316h11.712v43.372h-9.984zm58.045-14.248a24.8 24.8 0 0 1-4.487 15.482a14.73 14.73 0 0 1-12.43 5.856a14.1 14.1 0 0 1-6.058-1.256a12.6 12.6 0 0 1-4.488-3.725v20.822H286.55V28.316h10.545l.696 5.116a14.04 14.04 0 0 1 4.622-4.376a12.6 12.6 0 0 1 6.327-1.548a14.44 14.44 0 0 1 12.498 6.305a27.98 27.98 0 0 1 4.487 16.56zm-11.712-.897a21.3 21.3 0 0 0-2.042-9.962a6.74 6.74 0 0 0-6.26-3.815a8.84 8.84 0 0 0-4.487 1.077a8.03 8.03 0 0 0-2.962 3.097V59.75a7.3 7.3 0 0 0 2.962 2.805a9.7 9.7 0 0 0 3.56.944l.927.02a6.74 6.74 0 0 0 6.238-3.343a17.57 17.57 0 0 0 1.997-8.975zm38.784 22.216l-1.627.02a19.56 19.56 0 0 1-15.011-6.014a21.53 21.53 0 0 1-5.617-13.984l.008-2.889a23.73 23.73 0 0 1 5.317-15.93c7.418-7.86 19.97-8.275 27.89-.92a20.38 20.38 0 0 1 4.891 14.315v6.372h-25.96v.247a11.22 11.22 0 0 0 2.872 7.023a8.98 8.98 0 0 0 6.91 2.76a22.8 22.8 0 0 0 6.463-.786a29.8 29.8 0 0 0 5.61-2.468l3.163 7.247a21.6 21.6 0 0 1-6.933 3.59a29.8 29.8 0 0 1-7.976 1.417m-2.682-35.88a6.13 6.13 0 0 0-5.138 2.49a12.9 12.9 0 0 0-2.244 6.53l.112.201h14.36V44.83a9.4 9.4 0 0 0-1.75-5.968a6.29 6.29 0 0 0-5.34-2.334zm48.375 1.727h-4.308a7.83 7.83 0 0 0-4.285 1.077a6.86 6.86 0 0 0-2.558 3.052v29.19h-11.668v-43.37h10.927l.516 6.416c.866-2.07 2.23-3.9 3.972-5.318a8.8 8.8 0 0 1 5.61-1.907q.811-.007 1.615.135l1.503.336zm29.214 21.383a4.09 4.09 0 0 0-1.863-3.343a19.2 19.2 0 0 0-5.458-2.19l-1.452-.278a28 28 0 0 1-11.6-4.645a10.01 10.01 0 0 1-3.927-8.347a11.97 11.97 0 0 1 4.712-9.536a19.17 19.17 0 0 1 12.61-3.904a20.8 20.8 0 0 1 13.215 3.882a11.53 11.53 0 0 1 4.716 8.868l-.004 1.206h-11.219a5.77 5.77 0 0 0-1.66-4.263a6.74 6.74 0 0 0-4.13-1.648l-.761.01a6.74 6.74 0 0 0-4.488 1.391a4.35 4.35 0 0 0-1.615 3.456a3.93 3.93 0 0 0 1.705 3.298a18.6 18.6 0 0 0 6.91 2.244c4.282.63 8.36 2.244 11.915 4.712a10.35 10.35 0 0 1 3.882 8.548a11.45 11.45 0 0 1-5.004 9.581a21.8 21.8 0 0 1-13.238 3.702a20.05 20.05 0 0 1-13.687-4.487a12.26 12.26 0 0 1-4.916-8.818l-.043-1.279h10.703a6.03 6.03 0 0 0 2.244 5.048c1.393.924 3 1.46 4.656 1.562l.998.01a8.1 8.1 0 0 0 4.936-1.302a4.11 4.11 0 0 0 1.863-3.478M466.4 72.52l-1.63.02a19.5 19.5 0 0 1-14.989-6.014a21.53 21.53 0 0 1-5.617-13.984l.008-2.889a23.83 23.83 0 0 1 5.295-15.93c7.418-7.86 19.97-8.275 27.89-.92a20.2 20.2 0 0 1 4.869 14.315v6.372H456.31v.247a11.22 11.22 0 0 0 2.85 7.023a8.98 8.98 0 0 0 5.962 2.755l.971.004a22.6 22.6 0 0 0 6.44-.785a29.3 29.3 0 0 0 5.631-2.468l3.164 7.247a21.8 21.8 0 0 1-6.933 3.59a30 30 0 0 1-7.995 1.417m-2.663-35.88a6.08 6.08 0 0 0-5.138 2.49a12.94 12.94 0 0 0-2.244 6.53l.135.201h14.36V44.83a9.4 9.4 0 0 0-1.75-5.968a6.29 6.29 0 0 0-5.363-2.334zm40.275-18.96v10.635h7.315v8.212h-7.315V58.63a5.12 5.12 0 0 0 1.055 3.612a3.7 3.7 0 0 0 2.805 1.077q.789.006 1.57-.112a14 14 0 0 0 1.548-.336L512 71.33c-1.126.392-2.282.7-3.455.92q-1.203.193-2.419.259l-1.216.032a12.48 12.48 0 0 1-9.334-3.32a14.63 14.63 0 0 1-3.276-10.546V36.528h-6.327v-8.212h6.327V17.681z" class="">
+                </path>
+              </svg>
+              <!-- Aave -->
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: App Preview -->
+        <div class="lg:justify-end lg:p-0 lg:pr-12 -bottom-40 lg:scale-100 hidden sm:block pt-8 pr-12 pb-8 pl-8 absolute right-0 scale-50 items-end justify-center">
+          <!-- Phone Mockup -->
+          <div class="relative w-[280px] md:w-[320px] transform translate-y-8 lg:translate-y-16">
+            <!-- Phone Frame -->
+            <div class="bg-zinc-800 rounded-[2.5rem] pt-3 pr-3 pb-3 pl-3 relative shadow-2xl" style="box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)">
+              <!-- Notch -->
+
+
+              <!-- Screen -->
+              <div class="relative bg-white rounded-[2rem] overflow-hidden">
+                <!-- Status Bar -->
+                <div class="flex items-center justify-between px-6 py-3 bg-zinc-50">
+                  <span class="text-xs font-semibold text-zinc-900 font-geist" style="">9:41</span>
+                  <div class="flex items-center gap-1">
+                    <div class="w-4 h-2 bg-zinc-400 rounded-sm"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="text-zinc-400">
+                      <path fill="currentColor" d="M12 3C7.5 3 3.75 4.95 1 8l11 13l11-13c-2.75-3.05-6.5-5-11-5" class="">
+                      </path>
+                    </svg>
+                    <div class="w-6 h-3 border border-zinc-400 rounded-sm relative">
+                      <div class="absolute inset-0.5 bg-emerald-500 rounded-sm" style="width: 70%;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- App Content -->
+                <div class="p-5 space-y-5">
+                  <!-- Greeting -->
+                  <div class="flex items-center justify-between">
+                    <div class="">
+                      <p class="text-lg font-normal text-zinc-900 tracking-tight font-geist" style="">Hi, Marcus</p>
+                    </div>
+                    <div class="w-8 h-8 bg-zinc-100 rounded-full flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="text-zinc-600">
+                        <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4m0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4" class="">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <!-- Daily Suggestion Card -->
+                  <div class="bg-zinc-700 rounded-2xl px-4 py-4">
+                    <p class="text-[10px] text-zinc-400 uppercase tracking-wider mb-1 font-geist" style="">Today's
+                      suggestion</p>
+                    <p class="text-base font-normal text-white tracking-tight mb-3 font-geist" style="">Complete Module
+                      3
+                    </p>
+                    <div class="space-y-2">
+                      <div class="h-1.-700 rounded-full overflow-hidden">
+                        <div class="h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full" style="width: 65%;"></div>
+                      </div>
+                      <div class="flex justify-between text-[10px]">
+                        <span class="text-zinc-400 font-geist" style="">2h 15m · Zone 2</span>
+                        <span class="text-indigo-400 font-geist" style="">65%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Weekly Progress Card -->
+                  <div class="bg-zinc-50 border border-zinc-100 rounded-2xl p-4">
+                    <p class="text-[10px] text-zinc-400 uppercase tracking-wider mb-1 font-geist" style="">Weekly
+                      Progress
+                    </p>
+                    <p class="text-xl font-normal text-zinc-900 tracking-tight mb-2 font-geist" style="">87% Learning
+                      Load</p>
+                    <div class="flex items-center gap-2">
+                      <div class="flex-1 h-2 bg-zinc-200 rounded-full overflow-hidden">
+                        <div class="h-full bg-emerald-500 rounded-full" style="width: 87%;">
+                        </div>
+                      </div>
+                      <span class="text-[10px] text-emerald-600 font-medium font-geist" style="">Optimal</span>
+                    </div>
+                  </div>
+
+                  <!-- XP Balance Card -->
+                  <div class="bg-zinc-50 border border-zinc-100 rounded-2xl p-4">
+                    <p class="text-[10px] text-zinc-400 uppercase tracking-wider mb-1 font-geist" style="">XP Balance
+                    </p>
+                    <div class="flex items-baseline gap-1">
+                      <p class="text-xl font-semibold text-zinc-900 tracking-tight font-geist" style="">4,850</p>
+                      <span class="text-sm text-zinc-400 font-geist" style="">XP</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <section class="animate-fade-up w-full" style="animation-delay: 0.3s">
+  <div class="grid lg:grid-cols-12 lg:gap-4" style="">
+  <!-- Text Column -->
+  <div class="lg:col-span-4 space-y-6">
+  <h2 class="lg:text-4xl text-3xl font-medium text-neutral-900 tracking-tight font-geist">Why startups
+    choose
+    start.agency</h2>
+  <p class="text-[17px] leading-relaxed font-normal text-neutral-500 font-geist" style="">
+    Early-stage startups need a design partner who understands product as deeply as it understands design. At
+    start.agency, we help you build software that looks great and works even better.
+  </p>
+</div>
+
+  <!-- Grid Column -->
+  <div class="lg:col-span-8">
+    <div class="grid sm:grid-cols-2 lg:gap-2 bg-stone-50 border-stone-200 border rounded-3xl pt-2 pr-2 pb-2 pl-2 gap-x-2 gap-y-2">
+      <!-- Card 1 -->
+      <div class="bg-white p-8 rounded-2xl border border-neutral-200/60 flex flex-col gap-5 hover:border-neutral-300 transition-colors">
+        <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center text-neutral-900">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3v18h18"></path>
+            <path d="m19 9-5 5-4-4-3 3"></path>
+          </svg>
+        </div>
+        <div class="">
+          <h3 class="text-lg font-medium text-neutral-900 mb-2 font-geist" style="">We think like founders</h3>
+          <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">We care about speed,
+            trade-offs, and outcomes. Not design awards.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-8 rounded-2xl border border-neutral-200/60 flex flex-col gap-5 hover:border-neutral-300 transition-colors">
+        <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center text-neutral-900">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </div>
+        <div class="">
+          <h3 class="text-lg font-medium text-neutral-900 mb-2 font-geist" style="">Embedded collaboration</h3>
+          <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">Slack, Figma, async updates.
+            We work like part of your team.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-8 rounded-2xl border border-neutral-200/60 flex flex-col gap-5 hover:border-neutral-300 transition-colors">
+        <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center text-neutral-900">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+            </path>
+            <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+            </path>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+          </svg>
+        </div>
+        <div class="">
+          <h3 class="text-lg font-medium text-neutral-900 mb-2 font-geist" style="">Clear delivery, no drama</h3>
+          <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">You know what’s being worked
+            on, why, and when it ships.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="bg-white p-8 rounded-2xl border border-neutral-200/60 flex flex-col gap-5 hover:border-neutral-300 transition-colors">
+        <div class="w-10 h-10 rounded-lg bg-neutral-100 flex items-center justify-center text-neutral-900">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2.5V5z">
+            </path>
+            <path d="M2 9v1c0 1.1.9 2 2 2h1"></path>
+            <path d="M16 11h.01"></path>
+          </svg>
+        </div>
+        <div class="">
+          <h3 class="text-lg font-medium text-neutral-900 mb-2 font-geist" style="">Built for change </h3>
+          <p class="text-[15px] leading-relaxed text-neutral-500 font-geist" style="">Pivots happen. We adapt
+            without resetting the whole process and offer cheaper alternative to a classic hire.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  <section class="animate-fade-up lg:pb-0 lg:pt-0 w-full my-24 pt-20 pb-0 gap-x-0 gap-y-20">
+    <div class="grid lg:grid-cols-12 lg:gap-4 gap-x-12 gap-y-12">
+  <!-- Left Text -->
+  <div class="lg:col-span-4 space-y-6">
+    <h2 class="lg:text-4xl text-3xl font-medium text-neutral-900 tracking-tight font-geist" style="">What we do</h2>
+    <p class="text-[17px] leading-relaxed font-normal text-neutral-500 font-geist" style="">Different industries,
+      different team, space obsession for perfect user experience and quick ROI.</p>
+  </div>
+
+  <!-- Right Content: Service Cards -->
+  <div class="lg:col-span-8">
+    <div class="grid sm:grid-cols-3 gap-4">
+      <!-- Card 1: Product Design -->
+      <div class="space-y-2">
+        <div class="bg-white border border-neutral-200/60 p-4 rounded-2xl flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-900">
+            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+            <path d="M3 9h18"></path>
+            <path d="M9 21V9"></path>
+          </svg>
+          <span class="text-base font-medium text-neutral-900 font-geist" style="">Product Design</span>
+        </div>
+        <div class="bg-white border border-neutral-200/60 p-6 rounded-2xl h-full">
+          <ul class="space-y-3 text-[15px] text-neutral-500">
+            <li class="font-geist" style="">Web Apps</li>
+            <li class="font-geist" style="">Mobile Apps</li>
+            <li class="font-geist" style="">Design Systems</li>
+            <li class="font-geist" style="">Prototyping &amp; Ideation</li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2: Web Design -->
+      <div class="space-y-2">
+        <div class="bg-white border border-neutral-200/60 p-4 rounded-2xl flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-900">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="M2 8h20"></path>
+            <path d="M6 4v4" class=""></path>
+            <path d="M10 4v4"></path>
+            <path d="M14 4v4"></path>
+          </svg>
+          <span class="text-base font-medium text-neutral-900 font-geist" style="">Web Design</span>
+        </div>
+        <div class="bg-white border border-neutral-200/60 p-6 rounded-2xl h-full">
+          <ul class="space-y-3 text-[15px] text-neutral-500">
+            <li class="font-geist" style="">Landing Pages</li>
+            <li class="font-geist" style="">Multi-Page Websites</li>
+            <li class="flex gap-x-2 gap-y-2 items-center font-geist" style="">Aura Development</li>
+            <li class="font-geist" style="">Animations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3: Brand Identity -->
+      <div class="space-y-2">
+        <div class="bg-white border border-neutral-200/60 p-4 rounded-2xl flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-900">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z">
+            </path>
+          </svg>
+          <span class="text-base font-medium text-neutral-900 font-geist" style="">Brand Identity</span>
+        </div>
+        <div class="bg-white border border-neutral-200/60 p-6 rounded-2xl h-full">
+          <ul class="space-y-3 text-[15px] text-neutral-500">
+            <li class="font-geist" style="">Brand Guidelines</li>
+            <li class="font-geist" style="">Brand Assets</li>
+            <li class="font-geist" style="">Logos &amp; Marks</li>
+            <li class="font-geist" style="">Pitch Decks</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+  <section class="animate-fade-up w-full pb-0 gap-x-20 gap-y-20 lg:pb-0 lg:pt-0">
+    <div class="grid lg:grid-cols-12 lg:gap-4">
+  <div class="lg:col-span-4 space-y-6">
+    <h2 class="lg:text-4xl text-3xl font-medium text-neutral-900 tracking-tight font-geist" style="">Growth for
+      startups shipping fast.</h2>
+    <p class="text-[17px] leading-relaxed font-normal text-neutral-500 font-geist" style="">Dedicated design lead.
+      Unlimited requests.
+      Strategic input.
+      Long-term roadmap support.</p>
+  </div>
+  <div class="lg:col-span-8">
+    <div class="flex flex-col gap-2 bg-stone-50 border-stone-200 border rounded-[32px] pt-2 pr-2 pb-2 pl-2 gap-x-2 gap-y-2">
+      <!-- Top Pricing Card -->
+      <div class="bg-white border-neutral-200/60 border rounded-3xl pt-4 pr-4 pb-4 pl-4">
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="text-base font-semibold text-neutral-900 tracking-tight font-geist" style="">Monthly Retainer
+          </h3>
+          <span class="bg-neutral-100 text-neutral-600 px-2.5 py-1 rounded-full text-xs font-medium border border-neutral-200/50 font-geist" style="">Most Popular</span>
+        </div>
+        <p class="text-[15px] text-neutral-500 mb-8 font-geist" style="">Perfect for early teams getting off the
+          ground</p>
+        <div class="text-2xl font-semibold text-neutral-900 tracking-tight mb-4 font-geist" style="">$S6,990/month
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button class="flex-1 bg-neutral-900 text-white font-medium px-6 py-3 rounded-full hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 text-[15px] font-geist" style="">
+              Start Today
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+          <button class="flex-1 bg-white text-neutral-900 border border-neutral-200 font-medium px-6 py-3 rounded-full hover:bg-neutral-50 transition-colors flex items-center justify-center gap-2 text-[15px] font-geist" style="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
+                <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              </svg>
+              Book a Call
+            </button>
+        </div>
+      </div>
+
+      <!-- Features Card -->
+      <div class="bg-white border-neutral-200/60 border rounded-3xl pt-4 pr-4 pb-4 pl-4">
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3 text-[15px] text-neutral-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 shrink-0">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+              <path d="M3 6h18"></path>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="font-geist" style="">Priority delivery <span class="text-neutral-400 ml-1 cursor-help font-geist" title="Info" style="">ⓘ</span></span>
+          </li>
+          <li class="flex items-start gap-3 text-[15px] text-neutral-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 shrink-0">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span class="font-geist" style=""><span class="border-b border-neutral-300 font-geist" style="">All our services</span>,
+            unlimited possibilities</span>
+          </li>
+          <li class="flex items-start gap-3 text-[15px] text-neutral-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 shrink-0">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+              </path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span class="font-geist" style="">Weekly delivery and pause or cancel anytime</span>
+          </li>
+          <li class="flex items-start gap-3 text-[15px] text-neutral-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 shrink-0">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="font-geist" style="">1:1 communication on Slack and optional weekly call</span>
+          </li>
+
+        </ul>
+      </div>
+
+      <!-- Bottom Grid -->
+      <div class="grid sm:grid-cols-2 gap-2">
+        <div class="bg-white border-neutral-200/60 border rounded-3xl pt-6 pr-6 pb-6 pl-6">
+          <div class="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center mb-4 text-neutral-900">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </div>
+          <h4 class="text-base font-medium text-neutral-900 mb-2 font-geist" style="">Pause anytime</h4>
+          <p class="text-[14px] leading-relaxed text-neutral-500 font-geist" style="">Put your retainer on hold
+            whenever you want, for up to 30 days.</p>
+        </div>
+        <div class="bg-white border border-neutral-200/60 rounded-3xl p-6">
+          <div class="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center mb-4 text-neutral-900">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="m9 16 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h4 class="text-base font-medium text-neutral-900 mb-2 font-geist" style="">Try it for a week</h4>
+          <p class="text-[14px] leading-relaxed text-neutral-500 font-geist" style="">If you're not satisfied and
+            would rather go for a classic contract, we refund 75% immediately without asking questions.</p>
+        </div>
+      </div>
+
+      <!-- Powered by Stripe -->
+      <div class="flex justify-center py-2 items-center gap-1.5 opacity-60">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-500">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" class=""></path>
+        </svg>
+        <span class="text-[11px] font-medium text-neutral-500 font-geist" style="">Checkout powered by Stripe</span>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+  <script class="">
+    // Case Study Carousel Logic
+    let currentSlide = 0;
+    const slider = document.getElementById('case-study-slider');
+    // Assuming 2 slides for now
+    const totalSlides = 2; 
+
+    function moveSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        const offset = currentSlide * 100;
+        slider.style.transform = `translateX(-${offset}%)`;
+    }
+
+    // Auto rotate every 6 seconds
+    setInterval(() => {
+        moveSlide(1);
+    }, 6000);
+  </script>
+  <section class="animate-scaleIn animation-delay-400 sm:p-8 bg-[#ffffff] w-full max-w-7xl z-10 border-neutral-200/70 border rounded-3xl mt-24 mr-auto mb-24 ml-auto pt-6 pr-6 pb-6 pl-6 relative shadow-2xl gap-x-20 gap-y-20">
+    <!-- Header -->
+    <div class="flex flex-col sm:px-0 animate-fadeInUp pr-0 pl-0 gap-x-6 gap-y-2">
+      <h2 class="text-[44px] leading-[0.9] sm:text-6xl lg:text-7xl xl:text-5xl text-[#000000] tracking-tighter text-left font-geist" style="">
+        Testimonials.</h2>
+
+      <p class="sm:text-base text-sm text-zinc-400 tracking-tight mt-1 font-geist" style="">Real stories, real success.
+        Our customers have experienced firsthand the impact of our AI-powered solutions.</p>
+    </div>
+
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 sm:mt-8 mt-6 items-center">
+      <!-- Header -->
+
+
+      <!-- Carousel -->
+      <div class="lg:col-span-12 relative">
+        <div class="relative overflow-hidden h-[420px] rounded-3xl mt-6">
+          <!-- Edge fades -->
+          <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10">
+          </div>
+          <div aria-hidden="true" class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10">
+          </div>
+
+          <!-- Rail -->
+          <div class="flex gap-6 overflow-x-auto scroll-smooth pr-6 pl-6 absolute top-0 right-0 bottom-0 left-0 items-center" style="scrollbar-width: none; -ms-overflow-style: none;" id="testimonial-rail">
+            <!-- Card 1 -->
+            <article class="min-w-[420px] sm:min-w-[520px] max-w-[640px] bg-white border border-neutral-200/70 rounded-[24px] p-8 text-neutral-900 hover-lift backdrop-blur-sm snap-center -rotate-2 shadow-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-neutral-900 tracking-tighter font-geist" style="">
+                "FlowAI transformed our content strategy. We now generate 10x more content while maintaining quality."
+              </p>
+              <div class="mt-8 flex items-center gap-3">
+                <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="" class="w-10 h-10 rounded-xl object-cover">
+                <div class="">
+                  <div class="text-sm tracking-tight font-geist" style="">Sarah Chen</div>
+                  <div class="text-xs text-neutral-500 tracking-tight font-geist" style="">Marketing Director, TechFlow
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="min-w-[420px] sm:min-w-[520px] max-w-[640px] bg-white border border-neutral-200/70 rounded-[24px] p-8 text-neutral-900 hover-lift backdrop-blur-sm snap-center rotate-1 shadow-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-neutral-900 tracking-tighter font-geist" style="">
+                "The AI automation saved us 20+ hours weekly. Our content performance increased by 300%."
+              </p>
+              <div class="mt-8 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&amp;w=200&amp;h=200&amp;fit=crop&amp;crop=faces" alt="" class="w-10 h-10 rounded-xl object-cover">
+                <div class="">
+                  <div class="text-sm tracking-tight font-geist" style="">Marcus Rodriguez</div>
+                  <div class="text-xs text-neutral-500 tracking-tight font-geist" style="">Content Lead, GrowthLab</div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="min-w-[420px] sm:min-w-[520px] max-w-[640px] bg-white border border-neutral-200/70 rounded-[24px] p-8 text-neutral-900 hover-lift backdrop-blur-sm snap-center -rotate-1 shadow-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-neutral-900 tracking-tighter font-geist" style="">
+                "Incredible ROI. FlowAI paid for itself within the first month of implementation."
+              </p>
+              <div class="mt-8 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=200&amp;h=200&amp;fit=crop&amp;crop=faces" alt="" class="w-10 h-10 rounded-xl object-cover">
+                <div class="">
+                  <div class="text-sm tracking-tight font-geist" style="">Emma Thompson</div>
+                  <div class="text-xs text-neutral-500 tracking-tight font-geist" style="">Founder, Digital Ventures
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="min-w-[420px] sm:min-w-[520px] max-w-[640px] bg-white border border-neutral-200/70 rounded-[24px] p-8 text-neutral-900 hover-lift backdrop-blur-sm snap-center rotate-2 shadow-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-neutral-900 tracking-tighter font-geist" style="">
+                "From brief to published content in minutes — completely game-changing for our workflow."
+              </p>
+              <div class="mt-8 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&amp;w=200&amp;h=200&amp;fit=crop&amp;crop=faces" alt="" class="w-10 h-10 rounded-xl object-cover">
+                <div>
+                  <div class="text-sm tracking-tight font-geist" style="">Alex Morgan</div>
+                  <div class="text-xs text-neutral-500 tracking-tight font-geist" style="">Creative Director, Apex
+                    Studios
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="min-w-[420px] sm:min-w-[520px] max-w-[640px] bg-white border border-neutral-200/70 rounded-[24px] p-8 text-neutral-900 hover-lift backdrop-blur-sm snap-center -rotate-3 shadow-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-neutral-900 tracking-tighter font-geist" style="">
+                "The analytics and multi-channel distribution features are phenomenal. Best investment we made."
+              </p>
+              <div class="mt-8 flex items-center gap-3">
+                <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&amp;w=200&amp;h=200&amp;fit=crop&amp;crop=faces" alt="" class="w-10 h-10 rounded-xl object-cover">
+                <div>
+                  <div class="text-sm tracking-tight font-geist" style="">Priya Patel</div>
+                  <div class="text-xs text-neutral-500 tracking-tight font-geist" style="">Head of Marketing,
+                    InnovateCorp
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Controls -->
+          <div class="absolute bottom-6 right-6 z-20 flex items-center gap-3">
+            <button aria-label="Previous" class="hover:bg-neutral-200 transition-colors inline-flex text-neutral-900 bg-neutral-100 w-10 h-10 border-neutral-200 border rounded-full items-center justify-center" id="testimonial-prev" style="opacity: 0.5; pointer-events: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-left" style="stroke-width:1.5" class="lucide lucide-arrow-left w-5 h-5"><path d="m12 19-7-7 7-7" class=""></path><path d="M19 12H5" class=""></path></svg>
+        </button>
+            <button aria-label="Next" class="w-10 h-10 rounded-full text-white bg-neutral-900 hover:bg-neutral-800 transition-colors inline-flex items-center justify-center" id="testimonial-next" style="opacity: 1; pointer-events: auto;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" style="stroke-width: 1.5; width: 24px; height: 20px; color: rgb(255, 255, 255);" class="lucide lucide-arrow-right w-[24px] h-[20px]" data-icon-replaced="true"><path d="M5 12h14" class=""></path><path d="m12 5 7 7-7 7" class=""></path></svg>
+        </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script class="">
+      (function() {
+  const rail = document.getElementById('testimonial-rail');
+  const prevButton = document.getElementById('testimonial-prev');
+  const nextButton = document.getElementById('testimonial-next');
+  
+  if (rail && prevButton && nextButton) {
+    const scrollDistance = 540; // Card width + gap
+    
+    // Previous button click handler
+    prevButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      rail.scrollBy({
+        left: -scrollDistance,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Next button click handler
+    nextButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      rail.scrollBy({
+        left: scrollDistance,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Update button states based on scroll position
+    function updateButtonStates() {
+      const scrollLeft = rail.scrollLeft;
+      const maxScroll = rail.scrollWidth - rail.clientWidth;
+      
+      // Disable/enable previous button
+      if (scrollLeft <= 10) {
+        prevButton.style.opacity = '0.5';
+        prevButton.style.pointerEvents = 'none';
+      } else {
+        prevButton.style.opacity = '1';
+        prevButton.style.pointerEvents = 'auto';
+      }
+      
+      // Disable/enable next button
+      if (scrollLeft >= maxScroll - 10) {
+        nextButton.style.opacity = '0.5';
+        nextButton.style.pointerEvents = 'none';
+      } else {
+        nextButton.style.opacity = '1';
+        nextButton.style.pointerEvents = 'auto';
+      }
+    }
+    
+    // Initial button state update
+    updateButtonStates();
+    
+    // Update button states on scroll
+    rail.addEventListener('scroll', updateButtonStates);
+    
+    // Update button states on window resize
+    window.addEventListener('resize', updateButtonStates);
+  }
+})();
+    </script>
+  </section>
+  <section class="animate-fade-up lg:pr-8 lg:pt-0 w-full mb-24 gap-x-20 gap-y-20">
+    <div class="grid lg:grid-cols-12 lg:gap-4">
+  <div class="lg:col-span-4 space-y-6">
+    <h2 class="text-3xl lg:text-4xl font-medium tracking-tight text-neutral-900 font-geist" style="">
+      Frequency Asked Questions
+    </h2>
+    <p class="text-[17px] text-neutral-500 leading-relaxed font-normal font-geist" style="">
+      Everything you need to know about the product and billing. Can't find the answer you're looking for? Please <a href="#" class="underline underline-offset-4 text-neutral-900 hover:text-neutral-600 transition-colors font-geist" style="">chat
+        to our friendly team</a>.
+    </p>
+  </div>
+  <div class="lg:col-span-8">
+    <div class="bg-stone-50 border border-stone-200 rounded-3xl p-2 gap-2 flex flex-col">
+      <!-- FAQ Item 1 -->
+      <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 cursor-pointer group hover:border-neutral-300 transition-colors" onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+        <div class="flex justify-between items-center">
+          <h3 class="text-base font-medium text-neutral-900 font-geist" style="">How does the "pause" feature work?
+          </h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 faq-icon transition-transform duration-300">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </div>
+        <div class="faq-answer hidden mt-4 text-neutral-500 text-[15px] leading-relaxed font-geist" style="">
+          We understand you might not have enough design work to fill up an entire month. Perhaps you only have one
+          or two requests at the moment. That's where pausing your subscription comes in handy. Billing cycles are
+          based on a 31 day period.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 cursor-pointer group hover:border-neutral-300 transition-colors" onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+        <div class="flex justify-between items-center">
+          <h3 class="text-base font-medium text-neutral-900 font-geist" style="">What is the typical turnaround
+            time?
+          </h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 faq-icon transition-transform duration-300">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </div>
+        <div class="faq-answer hidden mt-4 text-neutral-500 text-[15px] leading-relaxed font-geist" style="">
+          On average, most requests are completed in just two days or less. However, more complex requests can take
+          longer.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 cursor-pointer group hover:border-neutral-300 transition-colors" onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+        <div class="flex justify-between items-center">
+          <h3 class="text-base font-medium text-neutral-900 font-geist" style="">Do you offer development services?
+          </h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 faq-icon transition-transform duration-300">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </div>
+        <div class="faq-answer hidden mt-4 text-neutral-500 text-[15px] leading-relaxed font-geist" style="">
+          Yes! We offer Webflow and Framer development as part of our package. Custom coding is available upon
+          request.
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="bg-white border border-neutral-200/60 rounded-2xl p-6 cursor-pointer group hover:border-neutral-300 transition-colors" onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-180')">
+        <div class="flex justify-between items-center">
+          <h3 class="text-base font-medium text-neutral-900 font-geist" style="">How do we communicate?</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-400 faq-icon transition-transform duration-300">
+            <path d="m6 9 6 6 6-6"></path>
+          </svg>
+        </div>
+        <div class="faq-answer hidden mt-4 text-neutral-500 text-[15px] leading-relaxed font-geist" style="">
+          We use a private Slack channel for day-to-day communication and Trello for task management. We also offer
+          optional bi-weekly sync calls.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <footer class="pt-0 pb-0">
+    <div class="container lg:pl-0 lg:pr-0 mx-auto pr-0 pl-0">
+      <div class="lg:px-10 lg:py-12 bg-white border-neutral-200 border rounded-3xl pt-10 pr-6 pb-10 pl-6 shadow-[0_24px_60px_-32px_rgba(15,23,42,0.35)]">
+        <div class="flex flex-col lg:flex-row gap-10 lg:gap-16">
+          <!-- Brand -->
+          <div class="lg:w-1/3 space-y-5">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-neutral-900 flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="solar:cpu-bolt-bold-duotone" class="">
+                  <path fill="currentColor" d="M9.18 9.18c.054-.052.149-.118.451-.159c.323-.043.761-.044 1.439-.044h1.86c.678 0 1.116.001 1.438.044c.303.041.398.107.45.16c.054.053.12.148.16.45c.044.323.045.761.045 1.439v1.86c0 .678-.001 1.116-.045 1.438c-.04.303-.106.398-.16.45c-.052.054-.147.12-.45.16c-.322.044-.76.045-1.438.045h-1.86c-.678 0-1.116-.001-1.439-.045c-.302-.04-.397-.106-.45-.16c-.053-.052-.119-.147-.16-.45c-.043-.322-.044-.76-.044-1.438v-1.86c0-.678.001-1.116.044-1.439c.041-.302.107-.397.16-.45" opacity=".5" class=""></path>
+                  <path fill="currentColor" fill-rule="evenodd" d="M12.698 2.698a.698.698 0 0 0-1.396 0v2.79q-.764 0-1.395.017V2.698a.698.698 0 0 0-1.395 0v2.79q0 .056.008.108c-.936.115-1.585.353-2.078.846s-.731 1.142-.846 2.078a1 1 0 0 0-.108-.008h-2.79a.698.698 0 0 0 0 1.395h2.807q-.016.63-.016 1.395H2.698a.698.698 0 0 0 0 1.396h2.79q0 .764.017 1.395H2.698a.698.698 0 0 0 0 1.395h2.79a1 1 0 0 0 .108-.008c.115.936.353 1.585.846 2.078s1.142.731 2.078.846a1 1 0 0 0-.008.108v2.79a.698.698 0 0 0 1.395 0v-2.807q.63.016 1.395.016v2.791a.698.698 0 0 0 1.396 0v-2.79q.764 0 1.395-.017v2.807a.698.698 0 0 0 1.395 0v-2.79a1 1 0 0 0-.008-.108c.936-.115 1.585-.353 2.078-.846s.731-1.142.846-2.078q.053.009.108.008h2.79a.698.698 0 0 0 0-1.395h-2.807q.016-.63.016-1.395h2.791a.698.698 0 0 0 0-1.396h-2.79q0-.764-.017-1.395h2.807a.698.698 0 0 0 0-1.395h-2.79a1 1 0 0 0-.108.008c-.115-.936-.353-1.585-.846-2.078s-1.142-.731-2.078-.846a1 1 0 0 0 .008-.108v-2.79a.698.698 0 0 0-1.395 0v2.807a56 56 0 0 0-1.395-.016zm-3.252 4.94c.426-.057.96-.057 1.578-.057h1.952c.619 0 1.151 0 1.578.058c.458.061.896.2 1.252.555c.355.356.494.794.555 1.252c.058.426.058.96.058 1.578v1.952c0 .619 0 1.151-.058 1.578c-.061.458-.2.896-.555 1.252c-.356.355-.794.494-1.252.555c-.427.058-.96.058-1.578.058h-1.952c-.619 0-1.152 0-1.578-.058c-.458-.061-.896-.2-1.252-.555c-.355-.356-.494-.794-.555-1.252c-.058-.427-.058-.96-.058-1.578v-1.952c0-.619 0-1.152.058-1.578c.061-.458.2-.896.555-1.252c.356-.355.794-.494 1.252-.555" clip-rule="evenodd" class=""></path>
+                  <path fill="currentColor" d="M12.966 10.545a.698.698 0 0 0-1.135-.811l-1.329 1.86a.698.698 0 0 0 .568 1.103h.505l-.541.758a.698.698 0 1 0 1.135.81l1.329-1.86a.698.698 0 0 0-.568-1.103h-.505z" class=""></path>
+                </svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-sm font-semibold text-neutral-900 tracking-tight font-geist" style="">start.agency</span>
+                <span class="text-[11px] uppercase text-neutral-400 tracking-[0.16em] font-geist" style="">Start with design</span>
+              </div>
+            </div>
+            <p class="text-sm text-neutral-500 max-w-sm font-geist" style="">We partner with startups on early stage and
+              help them solve
+              problems with efficient design.</p>
+            <div class="flex items-center gap-3 text-neutral-500">
+              <a href="#" class="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center hover:border-neutral-400 hover:text-neutral-900 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="simple-icons:x" class="">
+                  <path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z" class=""></path>
+                </svg>
+              </a>
+              <a href="#" class="w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center hover:border-neutral-400 hover:text-neutral-900 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" data-icon="simple-icons:linkedin" class="">
+                  <path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z" class=""></path>
+                </svg>
+              </a>
+
+            </div>
+          </div>
+
+          <!-- Links -->
+          <div class="flex-1 grid grid-cols-2 md:grid-cols-3 gap-8 text-sm">
+            <div class="space-y-3">
+              <h3 class="uppercase text-xs font-medium text-neutral-400 tracking-[0.16em] font-geist" style="">Service
+              </h3>
+              <ul class="space-y-2 text-neutral-600">
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Website
+                    design</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Product
+                    design</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Brand
+                    identity</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Website
+                    development</a></li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <h3 class="uppercase text-xs font-medium text-neutral-400 tracking-[0.16em] font-geist" style="">Case
+                studies</h3>
+              <ul class="space-y-2 text-neutral-600">
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Project
+                    1</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Project
+                    2</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Project
+                    3</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Project
+                    4</a></li>
+              </ul>
+            </div>
+            <div class="space-y-3">
+              <h3 class="text-xs font-medium uppercase tracking-[0.16em] text-neutral-400 font-geist" style="">Company
+              </h3>
+              <ul class="space-y-2 text-neutral-600">
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Studio</a>
+                </li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Clients</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Careers</a></li>
+                <li class=""><a href="#" class="hover:text-neutral-900 transition-colors font-geist" style="">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logos + Bottom row -->
+        <div class="mt-10 border-t border-neutral-100 pt-6 flex flex-col gap-4">
+
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-neutral-400">
+            <p class="font-geist" style="">© 2025 start.agency</p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#" class="hover:text-neutral-700 transition-colors font-geist" style="">Privacy Policy</a>
+              <a href="#" class="hover:text-neutral-700 transition-colors font-geist" style="">Terms of Service</a>
+              <a href="#" class="hover:text-neutral-700 transition-colors font-geist" style="">Data Processing</a>
+              <a href="#" class="hover:text-neutral-700 transition-colors font-geist" style="">Cookie Settings</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</main>
+    </div>
+
+    <script class="">
+        // Spotlight Effect Logic
+        function handleSpotlight(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            e.currentTarget.style.setProperty('--mouse-x', `${x}px`);
+            e.currentTarget.style.setProperty('--mouse-y', `${y}px`);
+        }
+
+        // Carousel Logic
+        let currentIndex = 0;
+        const cards = [
+            document.getElementById('card-0'),
+            document.getElementById('card-1'),
+            document.getElementById('card-2')
+        ];
+
+        function rotateCarousel(direction) {
+            // Remove current classes
+            cards.forEach(card => {
+                card.classList.remove('active', 'prev', 'next');
+                // Ensure z-index reset
+                card.style.zIndex = '';
+            });
+
+            // Calculate new index
+            if (direction === 1) { // Next
+                currentIndex = (currentIndex + 1) % cards.length;
+            } else { // Prev
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            }
+
+            // Assign new classes based on new index
+            const activeIndex = currentIndex;
+            const nextIndex = (currentIndex + 1) % cards.length;
+            const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+
+            cards[activeIndex].classList.add('active');
+            cards[nextIndex].classList.add('next');
+            cards[prevIndex].classList.add('prev');
+        }
+
+        // Auto rotate every 5 seconds
+        setInterval(() => {
+            rotateCarousel(1);
+        }, 5000);
+    </script>
+
+</body></html>

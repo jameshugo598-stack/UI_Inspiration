@@ -1,0 +1,462 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MH Learning Platform</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+cream: '#FFFBF2',
+brand: {
+dark: '#0F2829', // Dark green/teal
+DEFAULT: '#123F3E',
+accent: '#F97316', // Orange
+light: '#E6F0EF',
+peach: '#FDE6C6',
+}
+},
+fontFamily: {
+sans: ['Inter', 'sans-serif'],
+},
+animation: {
+'float': 'float 6s ease-in-out infinite',
+'float-delayed': 'float 6s ease-in-out 3s infinite',
+'fade-up': 'fadeUp 0.8s ease-out forwards',
+},
+keyframes: {
+float: {
+'0%, 100%': { transform: 'translateY(0)' },
+'50%': { transform: 'translateY(-20px)' },
+},
+fadeUp: {
+'0%': { opacity: '0', transform: 'translateY(20px)' },
+'100%': { opacity: '1', transform: 'translateY(0)' },
+}
+}
+}
+}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+/* Custom Scrollbar for horizontal scroll */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style></head>
+<body class="bg-cream text-brand-dark antialiased selection:bg-brand-accent selection:text-white overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-gray-100/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <a href="#" class="text-3xl font-semibold tracking-tighter text-brand-dark">MH</a>
+                <div class="hidden md:flex items-center gap-8 text-lg font-medium text-gray-600">
+                    <a href="#" class="text-brand-dark relative flex flex-col items-center group">
+                        Home
+                        <span class="w-1.5 h-1.5 bg-brand-dark rounded-full absolute -bottom-3 opacity-100 transition-all"></span>
+                    </a>
+                    <a href="#" class="hover:text-brand-dark transition-colors relative group">
+                        Featured
+                        <span class="w-1.5 h-1.5 bg-brand-dark rounded-full absolute -bottom-3 opacity-0 group-hover:opacity-100 transition-all"></span>
+                    </a>
+                    <a href="#" class="hover:text-brand-dark transition-colors relative group">
+                        Contact
+                        <span class="w-1.5 h-1.5 bg-brand-dark rounded-full absolute -bottom-3 opacity-0 group-hover:opacity-100 transition-all"></span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden lg:flex items-center bg-white border border-gray-200 rounded-lg px-4 py-2.5 w-72 shadow-sm focus-within:ring-2 focus-within:ring-brand-dark/20 transition-all">
+                    <i data-lucide="search" class="w-5 h-5 text-gray-400 mr-3"></i>
+                    <input type="text" placeholder="What do you want to learn today?" class="bg-transparent border-none outline-none text-sm w-full placeholder-gray-400 text-gray-700">
+                </div>
+                <button class="bg-brand-dark text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-brand-dark/90 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-brand-dark/20">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 px-6 overflow-hidden">
+        <!-- Background Decorations -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <svg class="absolute top-20 left-10 w-[800px] h-[800px] opacity-20 text-gray-300" viewBox="0 0 100 100">
+                <path d="M0,50 Q25,25 50,50 T100,50" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+                <path d="M0,60 Q25,35 50,60 T100,60" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+            </svg>
+            <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-orange-100/30 to-transparent blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <!-- Left Content -->
+            <div class="space-y-8 reveal active">
+                <h1 class="text-6xl lg:text-7xl font-medium tracking-tight text-brand-dark leading-[1.1]">
+                    Learn Skills. Build <br>
+                    Your <span class="text-orange-400 relative inline-block">
+                        Future
+                        <svg class="absolute w-full h-3 -bottom-1 left-0 text-orange-200 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0,5 Q50,10 100,5" stroke="currentColor" stroke-width="8" fill="none"></path></svg>
+                    </span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-lg leading-relaxed">
+                    Start your learning journey Now with our expert-led courses designed to boost your career.
+                </p>
+                <button class="group bg-brand-dark text-white px-8 py-4 rounded-xl font-medium text-lg hover:bg-brand-dark/90 hover:shadow-xl hover:shadow-brand-dark/20 hover:-translate-y-1 transition-all duration-300 flex items-center gap-2">
+                    Start For Free
+                    <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <!-- Right Illustration (CSS Composition) -->
+            <div class="relative h-[500px] w-full flex items-center justify-center reveal delay-200">
+                <!-- Main 3D Composition Placeholder -->
+                <div class="relative w-full max-w-md aspect-square">
+                    <!-- Background blobs -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-orange-100/50 rounded-full blur-3xl"></div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute top-0 right-10 animate-float z-20">
+                        <div class="bg-orange-300 p-4 rounded-2xl shadow-xl transform rotate-12">
+                            <i data-lucide="magnet" class="w-12 h-12 text-white"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-20 left-0 animate-float-delayed z-20">
+                        <div class="bg-orange-400 p-4 rounded-2xl shadow-xl transform -rotate-12">
+                            <i data-lucide="megaphone" class="w-12 h-12 text-white"></i>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-1/2 right-0 animate-float z-20" style="animation-delay: 1.5s;">
+                        <div class="bg-yellow-500 p-3 rounded-full shadow-xl">
+                            <i data-lucide="dollar-sign" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+
+                    <!-- Central Monitor/Dashboard Graphic -->
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-64 bg-white rounded-2xl shadow-2xl border border-orange-100 overflow-hidden transform hover:scale-105 transition-transform duration-500">
+                        <div class="h-full w-full bg-gradient-to-br from-orange-50 to-white p-6 flex flex-col gap-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <div class="flex-1 bg-orange-100/50 rounded-lg p-4 flex items-center justify-center">
+                                <span class="text-orange-400 font-bold text-2xl tracking-tight">ADS</span>
+                                <i data-lucide="bar-chart-2" class="w-8 h-8 text-orange-400 ml-2"></i>
+                            </div>
+                            <div class="h-2 w-2/3 bg-gray-100 rounded-full"></div>
+                            <div class="h-2 w-1/2 bg-gray-100 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Bar Overlay -->
+        <div class="max-w-4xl mx-auto mt-12 bg-cream border border-orange-100 rounded-2xl p-8 shadow-xl shadow-orange-900/5 relative z-20 reveal delay-300 transform lg:-translate-y-12">
+            <div class="grid grid-cols-3 gap-8 divide-x divide-orange-200/50 text-center">
+                <div class="group">
+                    <h3 class="text-4xl font-semibold text-brand-dark tracking-tight mb-1 group-hover:scale-110 transition-transform duration-300">5k+</h3>
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Courses</p>
+                </div>
+                <div class="group">
+                    <h3 class="text-4xl font-semibold text-brand-dark tracking-tight mb-1 group-hover:scale-110 transition-transform duration-300">100+</h3>
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Expert Instructors</p>
+                </div>
+                <div class="group">
+                    <h3 class="text-4xl font-semibold text-brand-dark tracking-tight mb-1 group-hover:scale-110 transition-transform duration-300">2k+</h3>
+                    <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Certificates Awarded</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Outcomes -->
+    <section class="py-24 px-6 bg-white/50">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <h2 class="text-4xl font-medium tracking-tight text-brand-dark mb-6">Career outcomes from learners</h2>
+                <p class="text-xl text-gray-600 leading-relaxed mb-10">
+                    77% of learners report career benefits, like landing a new job, earning a promotion, gaining applicable skills, and more.<sup class="text-sm">1</sup>
+                </p>
+                <button class="bg-brand-dark text-white px-8 py-4 rounded-lg font-medium text-lg hover:bg-brand-dark/90 hover:shadow-xl hover:shadow-brand-dark/20 transition-all duration-300">
+                    Get 3 Free Lessons Now
+                </button>
+            </div>
+            <div class="relative reveal delay-200">
+                <div class="relative h-[500px] w-full rounded-tl-3xl rounded-tr-[100px] rounded-bl-3xl rounded-br-3xl overflow-hidden shadow-2xl group">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80" alt="Modern Office" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Filter Pills -->
+            <div class="flex flex-wrap gap-3 mb-12 reveal">
+                <button class="bg-brand-dark text-white px-5 py-2 rounded-full text-sm font-medium transition-transform active:scale-95">All</button>
+                <button class="bg-white border border-gray-300 text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:border-brand-dark hover:text-brand-dark transition-colors active:scale-95">Ui Ux Design</button>
+                <button class="bg-white border border-gray-300 text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:border-brand-dark hover:text-brand-dark transition-colors active:scale-95">Motion Graphics</button>
+                <button class="bg-white border border-gray-300 text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:border-brand-dark hover:text-brand-dark transition-colors active:scale-95">Graphics Design</button>
+                <button class="bg-white border border-gray-300 text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:border-brand-dark hover:text-brand-dark transition-colors active:scale-95">Animation</button>
+                <button class="bg-white border border-gray-300 text-gray-600 px-5 py-2 rounded-full text-sm font-medium hover:border-brand-dark hover:text-brand-dark transition-colors active:scale-95">Web Development</button>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 h-auto lg:h-[500px]">
+                <!-- Info Card -->
+                <div class="lg:col-span-4 bg-brand-peach rounded-3xl p-10 flex flex-col justify-center items-start relative overflow-hidden reveal shadow-lg">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-orange-400/10 rounded-full blur-2xl"></div>
+                    
+                    <h2 class="text-4xl font-medium tracking-tight text-brand-dark mb-6 relative z-10">Our Courses</h2>
+                    <p class="text-lg text-brand-dark/80 mb-10 leading-relaxed relative z-10">
+                        Explore courses designed for every level — from beginner to professional.
+                    </p>
+                    <button class="bg-transparent border-2 border-brand-dark text-brand-dark px-8 py-3 rounded-full font-medium text-lg hover:bg-brand-dark hover:text-white transition-all duration-300 relative z-10">
+                        Explore More
+                    </button>
+                </div>
+
+                <!-- Course Cards Slider Area -->
+                <div class="lg:col-span-8 flex gap-6 overflow-x-auto hide-scrollbar pb-4 reveal delay-200">
+                    <!-- Card 1 -->
+                    <div class="min-w-[360px] bg-white rounded-3xl border border-gray-100 p-4 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col">
+                        <div class="h-48 bg-orange-50 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:bg-orange-100 transition-colors">
+                            <i data-lucide="layout-template" class="w-20 h-20 text-orange-300 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-sm p-2 rounded-full">
+                                <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-600"></i>
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3 class="text-xl font-medium text-brand-dark mb-2">Social Media Marketing</h3>
+                            <div class="flex justify-between items-center text-sm text-gray-500 mb-6">
+                                <span>Beginner to Advanced</span>
+                                <span>3 Hours</span>
+                            </div>
+                            <button class="w-full mt-auto bg-brand-dark text-white py-3 rounded-xl text-sm font-medium hover:bg-brand-dark/90 transition-colors">Start Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="min-w-[360px] bg-white rounded-3xl border border-gray-100 p-4 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group flex flex-col">
+                        <div class="h-48 bg-indigo-50 rounded-2xl mb-6 relative overflow-hidden flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
+                            <i data-lucide="smartphone" class="w-20 h-20 text-indigo-300 group-hover:scale-110 transition-transform duration-500"></i>
+                            <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-sm p-2 rounded-full">
+                                <i data-lucide="arrow-up-right" class="w-5 h-5 text-gray-600"></i>
+                            </div>
+                        </div>
+                        <div class="px-2 flex-1 flex flex-col">
+                            <h3 class="text-xl font-medium text-brand-dark mb-2">Digital Marketing</h3>
+                            <div class="flex justify-between items-center text-sm text-gray-500 mb-6">
+                                <span>Beginner to Advanced</span>
+                                <span>3 Hours</span>
+                            </div>
+                            <button class="w-full mt-auto bg-brand-dark text-white py-3 rounded-xl text-sm font-medium hover:bg-brand-dark/90 transition-colors">Start Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows (Visual Only for Layout) -->
+                <div class="lg:col-span-12 flex justify-end gap-3 mt-4">
+                    <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i data-lucide="chevron-left" class="w-5 h-5 text-gray-600"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-brand-dark flex items-center justify-center hover:bg-brand-dark/90 transition-colors">
+                        <i data-lucide="chevron-right" class="w-5 h-5 text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-center text-brand-dark mb-16 max-w-2xl mx-auto leading-tight reveal">
+                What subscribers are achieving through learning
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="bg-cream p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300 reveal border border-transparent hover:border-orange-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="User" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-brand-dark text-lg">Abigail P.</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        "I have a full-time job and 3 kids. I needed the flexibility offered by Coursera Plus in order to achieve my goals. My Coursera Plus subscription motivated me to keep learning."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-cream p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300 reveal delay-100 border border-transparent hover:border-orange-100">
+                     <div class="flex items-center gap-4 mb-6">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="User" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-brand-dark text-lg">James L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        "The structured learning path helped me transition from sales to data analytics in just 6 months. The projects were practical and challenging."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-cream p-8 rounded-2xl hover:shadow-lg transition-shadow duration-300 reveal delay-200 border border-transparent hover:border-orange-100">
+                     <div class="flex items-center gap-4 mb-6">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="User" class="w-12 h-12 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-semibold text-brand-dark text-lg">Sarah M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        "Being able to learn at my own pace was crucial. The community support was surprising and very helpful when I got stuck on assignments."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-medium tracking-tight text-center text-brand-dark mb-16 reveal">Frequently asked questions</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-4 reveal delay-100 border border-gray-200 rounded-3xl p-8 bg-white shadow-sm">
+                <!-- FAQ Item 1 -->
+                <div class="group">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-brand-dark">How do i know this is good for me?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300 group-hover:text-brand-dark"></i>
+                    </button>
+                    <div class="h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="pb-6 pt-2 text-gray-600 bg-cream/50 p-4 rounded-xl mt-2">
+                            This is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-px bg-gray-100"></div>
+
+                <!-- FAQ Item 2 -->
+                <div class="group">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-brand-dark">How do i Know this is good for me?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300 group-hover:text-brand-dark"></i>
+                    </button>
+                    <div class="h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="pb-6 pt-2 text-gray-600 bg-cream/50 p-4 rounded-xl mt-2">
+                            Content for the second question goes here. Detailed explanation helps users understand the value proposition.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full h-px bg-gray-100"></div>
+
+                <!-- FAQ Item 3 -->
+                <div class="group">
+                    <button class="w-full flex justify-between items-center py-4 text-left focus:outline-none" onclick="toggleFaq(this)">
+                        <span class="text-lg font-medium text-brand-dark">How do i Know this is good for me?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300 group-hover:text-brand-dark"></i>
+                    </button>
+                    <div class="h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="pb-6 pt-2 text-gray-600 bg-cream/50 p-4 rounded-xl mt-2">
+                            More details about the course structure and benefits would be placed here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto reveal">
+            <h2 class="text-4xl md:text-5xl font-medium tracking-tight mb-8">Learn Skills. Build Your Future</h2>
+            <button class="bg-white text-brand-dark px-10 py-4 rounded-xl font-semibold text-lg hover:bg-gray-100 hover:scale-105 transition-all shadow-lg shadow-black/20">
+                Start For Free
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // FAQ Toggle Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Close others
+            document.querySelectorAll('.group button + div').forEach(div => {
+                if (div !== content) {
+                    div.style.height = '0';
+                    div.style.opacity = '0';
+                    div.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current
+            if (content.style.height === '0px' || !content.style.height) {
+                content.style.height = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.height = '0';
+                content.style.opacity = '0';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body></html>
