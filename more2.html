@@ -47,7 +47,9 @@ body { font-family: 'Inter', sans-serif; }
 /* Custom Scrollbar for horizontal scroll */
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style></head>
+</style>
+<style>/* Hide scrollbar for Chrome, Safari and Opera */::-webkit-scrollbar { display: none; }/* Hide scrollbar for IE, Edge and Firefox */html { -ms-overflow-style: none;  scrollbar-width: none; }</style>
+</head>
 <body class="bg-cream text-brand-dark antialiased selection:bg-brand-accent selection:text-white overflow-x-hidden">
 
     <!-- Navbar -->
@@ -220,7 +222,7 @@ body { font-family: 'Inter', sans-serif; }
                     
                     <h2 class="text-4xl font-medium tracking-tight text-brand-dark mb-6 relative z-10">Our Courses</h2>
                     <p class="text-lg text-brand-dark/80 mb-10 leading-relaxed relative z-10">
-                        Explore courses designed for every level — from beginner to professional.
+                        Explore courses designed for every level â€” from beginner to professional.
                     </p>
                     <button class="bg-transparent border-2 border-brand-dark text-brand-dark px-8 py-3 rounded-full font-medium text-lg hover:bg-brand-dark hover:text-white transition-all duration-300 relative z-10">
                         Explore More
