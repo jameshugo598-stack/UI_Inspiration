@@ -3,7 +3,7 @@
 A collection of 5 premium landing page templates ready to use. This repository includes a browser website to preview, copy code, and download these templates.
 
 ## Templates Included
-- `fourth.html`
+- `new.html`
 - `more.html`
 - `more2.html`
 - `nice.html`

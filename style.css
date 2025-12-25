@@ -55,7 +55,23 @@ header p {
     color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
+    margin-bottom: 2rem;
 }
+
+.premium-cta {
+    display: inline-block;
+    max-width: 250px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    border: none;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+}
+
+.premium-cta:hover {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+}
+
 
 .grid {
     display: grid;
@@ -160,7 +176,7 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .modal-content {

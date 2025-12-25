@@ -1,41 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free UI Inspiration Kit</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Free UI Kit | Core Series</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .bg-grid {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Free UI Kit <span class="badge">PRO</span></h1>
-            <p>Premium landing pages for your next big idea. Preview, copy, or download instantly.</p>
+
+<body class="bg-[#0a0a0c] text-zinc-100 antialiased selection:bg-indigo-500/30">
+    <div class="fixed inset-0 bg-grid pointer-events-none"></div>
+    <div
+        class="fixed inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(99,102,241,0.05)_0%,transparent_50%)] pointer-events-none">
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-white"></i>
+                </div>
+                <span class="text-lg font-bold tracking-tight">Free UI Kit</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="../index.html"
+                    class="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Showcase</a>
+                <a href="../Paid/index.html"
+                    class="bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 px-4 py-1.5 rounded-full text-xs font-bold hover:bg-indigo-600 hover:text-white transition-all">Unlock
+                    Pro</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="relative pt-40 pb-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1
+                class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent">
+                The Core Essentials.
+            </h1>
+            <p class="text-lg text-zinc-400 font-light max-w-xl mx-auto mb-12">
+                A collection of 5 highly functional, aesthetic landing pages for your next creative project. Free to
+                use, forever.
+            </p>
         </div>
     </header>
 
-    <main class="container">
-        <div class="grid" id="template-grid">
-            <!-- Templates will be injected here -->
+    <!-- Project Grid -->
+    <main class="max-w-7xl mx-auto px-6 pb-40 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="template-grid">
+            <!-- Templates will be injected here via script.js -->
         </div>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Free UI Inspiration Kit. All rights reserved.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 text-center relative z-20 bg-black/40 backdrop-blur-md">
+        <p class="text-zinc-500 text-sm">&copy; 2025 Vertex Archive. Core Series.</p>
     </footer>
 
-    <div id="preview-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe id="preview-frame" src=""></iframe>
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
+        <div
+            class="absolute inset-4 md:inset-10 bg-[#0d0d0f] border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+            <div class="p-4 border-b border-white/5 flex items-center justify-between bg-black/40">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span class="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                </div>
+                <div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">Preview Mode</div>
+                <button class="close text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <iframe id="preview-frame" src="" class="w-full grow border-none bg-white"></iframe>
         </div>
     </div>
 
+    <!-- Scripts are already there, just need to update script.js for the UI injection -->
     <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>

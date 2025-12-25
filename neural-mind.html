@@ -1,0 +1,675 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neural Synthesis Interface</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<!-- Animation Keyframe (requested) -->
+<style class="">
+/*
+Sequence animation intro. Usage:
+1) Insert this code in the <head>
+2) Add to Tailwind Classes: [animation:animationIn_0.8s_ease-out_0.1s_both]
+*/
+@keyframes animationIn {
+0% {
+opacity: 0;
+transform: translateY(30px);
+filter: blur(8px);
+}
+100% {
+opacity: 1;
+transform: translateY(0);
+filter: blur(0px);
+}
+}
+</style>
+<!-- Animation on Scroll (requested) -->
+<script>
+/*
+Sequence animation on scroll when visible. Requires Animation Keyframe. Usage:
+1) Insert this code in the <head> along with the Animation Keyframe code.
+2) Add to Tailwind Classes: [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll
+*/
+(function () {
+// Inject CSS for paused/running states
+const style = document.createElement("style");
+style.textContent = `
+/* Default: paused */
+.animate-on-scroll { animation-play-state: paused !important; }
+/* Activated by JS */
+.animate-on-scroll.animate { animation-play-state: running !important; }
+`;
+document.head.appendChild(style);
+const once = true;
+if (!window.__inViewIO) {
+window.__inViewIO = new IntersectionObserver((entries) => {
+entries.forEach((entry) => {
+if (entry.isIntersecting) {
+entry.target.classList.add("animate");
+if (once) window.__inViewIO.unobserve(entry.target);
+}
+});
+}, { threshold: 0.2, rootMargin: "0px 0px -10% 0px" });
+}
+window.initInViewAnimations = function (selector = ".animate-on-scroll") {
+document.querySelectorAll(selector).forEach((el) => {
+window.__inViewIO.observe(el); // observing twice is a no-op
+});
+};
+document.addEventListener("DOMContentLoaded", () => initInViewAnimations());
+})();
+</script>
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #050505;
+color: #e5e5e5;
+}
+.font-mono {
+font-family: 'JetBrains Mono', monospace;
+}
+/* Novus Arc Inspired Utilities */
+.grid-bg {
+background-image:
+linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size: 40px 40px;
+}
+/* Beam Animations - Updated to Blue */
+.beam-border-v {
+position: absolute;
+top: 0; bottom: 0; left: 0;
+width: 1px;
+background: rgba(255,255,255,0.05);
+overflow: hidden;
+z-index: 10;
+}
+.beam-border-v::after {
+content: '';
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+background: linear-gradient(to bottom, transparent, #3B82F6, transparent);
+transform: translateY(-100%);
+animation: beam-drop 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+opacity: 0.5;
+}
+.beam-border-h {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+height: 1px;
+background: rgba(255,255,255,0.05);
+overflow: hidden;
+z-index: 10;
+}
+.beam-border-h::after {
+content: '';
+position: absolute;
+top: 0; left: 0; bottom: 0; right: 0;
+background: linear-gradient(to right, transparent, #3B82F6, transparent);
+transform: translateX(-100%);
+animation: beam-slide 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+animation-delay: 2.5s;
+opacity: 0.5;
+}
+@keyframes beam-drop {
+0% { transform: translateY(-100%); opacity: 0; }
+10% { opacity: 1; }
+90% { opacity: 1; }
+100% { transform: translateY(100%); opacity: 0; }
+}
+@keyframes beam-slide {
+0% { transform: translateX(-100%); opacity: 0; }
+10% { opacity: 1; }
+90% { opacity: 1; }
+100% { transform: translateX(100%); opacity: 0; }
+}
+/* Animated Button CSS - Blue Variant */
+.btn-wrapper { position: relative; display: inline-flex; justify-content: center; align-items: center; padding: 0.8rem 1rem; user-select: none; }
+.btn-wrapper::after {
+content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+border-radius: inherit; pointer-events: none; background-color: #0000;
+background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.1) 0 1px, transparent 2px 5px);
+opacity: 0; z-index: -1;
+}
+.btn-wrapper:has(.btn:hover)::after { animation: opacity-anim 1.4s ease-in-out forwards; }
+@keyframes opacity-anim { 80% { opacity: 0; } 100% { opacity: 1; } }
+.btn-wrapper .btn {
+position: relative; display: flex; justify-content: center; align-items: center;
+padding: 1rem 1.5rem; background-color: transparent; border: 1px solid rgba(255,255,255,0.1);
+color: white; font-family: "JetBrains Mono", monospace; letter-spacing: 0.05em;
+font-size: 0.75rem; font-weight: 500; text-transform: uppercase; border-radius: 0px;
+cursor: pointer; transition: transform .2s ease-in-out, letter-spacing .2s ease-in-out, background-color .2s;
+}
+.btn-wrapper .btn:hover { background-color: #3B82F6; color: white; border-color: #3B82F6; transform: scale(1.05); letter-spacing: .1em; }
+/* Button Decorations - Blue */
+.btn-wrapper .dot { position: absolute; width: 4px; aspect-ratio: 1; background-color: #3B82F6; transition: all .3s ease-in-out; opacity: 0; }
+.btn-wrapper:has(.btn:hover) .dot.top.left { top: 50%; left: 20%; animation: move-tl 0.35s ease-in-out forwards; }
+.btn-wrapper:has(.btn:hover) .dot.top.right { top: 50%; right: 20%; animation: move-tr 0.35s ease-in-out forwards 0.2s; }
+.btn-wrapper:has(.btn:hover) .dot.bottom.right { bottom: 50%; right: 20%; animation: move-br 0.35s ease-in-out forwards 0.4s; }
+.btn-wrapper:has(.btn:hover) .dot.bottom.left { bottom: 50%; left: 20%; animation: move-bl 0.35s ease-in-out forwards 0.6s; }
+@keyframes move-tl { 100% { top: -2px; left: -2px; opacity: 1; } }
+@keyframes move-tr { 100% { top: -2px; right: -2px; opacity: 1; } }
+@keyframes move-br { 100% { bottom: -2px; right: -2px; opacity: 1; } }
+@keyframes move-bl { 100% { bottom: -2px; left: -2px; opacity: 1; } }
+.btn-wrapper .line { position: absolute; background-color: #3B82F6; transition: all .3s ease-in-out; opacity: 0; }
+.btn-wrapper:has(.btn:hover) .line { opacity: 1; }
+/* Utilities */
+.text-glow { text-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+.selection-blue ::selection { background-color: #3B82F6; color: white; }
+/* Entrance Animations */
+@keyframes fadeSlideIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.animate-enter {
+animation: fadeSlideIn 1s cubic-bezier(0.2,0.8,0.2,1) both;
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+/* Micro-grid pattern for cards */
+.micro-grid {
+background-image:
+linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size: 20px 20px;
+}
+</style>
+<meta name="disabled-font-classes" content="font-roboto,font-montserrat,font-poppins,font-playfair,font-merriweather,font-bricolage,font-jakarta,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito,font-newsreader,font-google-sans-flex,font-oswald,font-dm-sans,font-instrument-serif,font-geist">
+<style id="aura-editor-visibility-style">
+.invisible { visibility: hidden !important; }
+</style>
+<link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style></head>
+<body class="min-h-screen flex items-center justify-center lg:p-8 selection-blue overflow-x-hidden text-neutral-200 bg-[#050505] pt-4 pr-4 pb-4 pl-4">
+
+    <div class="overflow-hidden bg-[#080808] w-full max-w-[1400px] border-white/5 border relative shadow-2xl" style="">
+        
+        <!-- Header -->
+        <header class="flex flex-col lg:flex-row z-30 bg-[#080808]/80 border-white/5 border-b pt-6 pr-6 pb-6 pl-6 relative backdrop-blur-md items-center justify-between" style="">
+            <div class="beam-border-h"></div>
+            
+            <div class="flex items-center gap-12 w-full lg:w-auto justify-between lg:justify-start">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 text-white hover:text-[#3B82F6] transition-colors cursor-pointer group" style="">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:rotate-90 transition-transform duration-500" style="" data-icon-set="simple-icons" data-simple-icons="openai"><path fill="currentColor" d="M22.282 9.821a6 6 0 0 0-.516-4.91a6.05 6.05 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a6 6 0 0 0-3.998 2.9a6.05 6.05 0 0 0 .743 7.097a5.98 5.98 0 0 0 .51 4.911a6.05 6.05 0 0 0 6.515 2.9A6 6 0 0 0 13.26 24a6.06 6.06 0 0 0 5.772-4.206a6 6 0 0 0 3.997-2.9a6.06 6.06 0 0 0-.747-7.073M13.26 22.43a4.48 4.48 0 0 1-2.876-1.04l.141-.081l4.779-2.758a.8.8 0 0 0 .392-.681v-6.737l2.02 1.168a.07.07 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494M3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085l4.783 2.759a.77.77 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646M2.34 7.896a4.5 4.5 0 0 1 2.366-1.973V11.6a.77.77 0 0 0 .388.677l5.815 3.354l-2.02 1.168a.08.08 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855l-5.833-3.387L15.119 7.2a.08.08 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667m2.01-3.023l-.141-.085l-4.774-2.782a.78.78 0 0 0-.785 0L9.409 9.23V6.897a.07.07 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.8.8 0 0 0-.393.681zm1.097-2.365l2.602-1.5l2.607 1.5v2.999l-2.597 1.5l-2.607-1.5Z"></path></svg>
+                   <span class="font-mono text-sm tracking-widest uppercase font-manrope" style="">Neural<span class="text-neutral-600 font-manrope" style="">Mind</span></span>
+                </div>
+
+                <!-- Nav -->
+                <nav class="hidden lg:flex gap-8 font-mono text-[10px] tracking-widest font-medium text-neutral-500" style="">
+                    <a href="#" class="hover:text-white transition-colors flex items-center gap-2 group font-manrope" style="">
+                        <span class="w-1 h-1 bg-transparent group-hover:bg-[#3B82F6] rounded-full transition-colors"></span>
+                        MATRIX
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors flex items-center gap-2 group font-manrope" style="">
+                        <span class="w-1 h-1 bg-transparent group-hover:bg-[#3B82F6] rounded-full transition-colors"></span>
+                        PROTOCOL
+                    </a>
+                    <a href="#" class="hover:text-white transition-colors flex items-center gap-2 group font-manrope" style="">
+                        <span class="w-1 h-1 bg-transparent group-hover:bg-[#3B82F6] rounded-full transition-colors"></span>
+                        LABS
+                    </a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-6 mt-4 lg:mt-0 w-full lg:w-auto justify-between lg:justify-end">
+                <div class="flex items-center gap-2 px-3 py-1 border border-white/10 rounded-full bg-white/[0.02]" style="">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#3B82F6] animate-pulse" style=""></span>
+                    <span class="font-mono text-[10px] font-medium uppercase tracking-wider text-neutral-400 font-manrope" style="">Systems Online</span>
+                </div>
+                <button class="text-white hover:text-[#3B82F6] transition-colors" style="">
+                    <iconify-icon icon="solar:menu-dots-bold-duotone" width="24"></iconify-icon>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-12 min-h-[800px] relative">
+            
+            <!-- Left Column: Hero -->
+            <div class="lg:col-span-5 relative flex flex-col justify-between border-r border-white/5 bg-[#050505]" style="">
+                <!-- Dotted Background -->
+                <div class="absolute inset-0 grid-bg opacity-30 pointer-events-none"></div>
+
+                <div class="relative p-8 lg:p-12 flex flex-col h-full z-10 justify-center">
+                    <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+                        <div class="inline-flex items-center gap-3 px-3 py-1 border border-white/10 font-mono text-[10px] font-medium tracking-widest mb-10 bg-white/[0.03] text-[#3B82F6]/80 backdrop-blur-sm font-manrope" style="">
+                            <span class="w-1 h-1 bg-[#3B82F6]" style=""></span>
+                            SYS 2.0 // ALPHA
+                        </div>
+
+                        <h1 class="lg:text-[5rem] leading-[0.9] uppercase text-6xl text-white tracking-tighter mb-8 font-manrope font-medium" style="">
+                            Neural <br>
+                            <span class="text-neutral-600 font-manrope font-medium" style="">Synthesis</span>
+                        </h1>
+
+                        <p class="leading-relaxed text-base font-light text-neutral-400 max-w-sm mb-12 font-manrope" style="">Converting chaotic data streams into structured cognitive models. The benchmark for autonomous reasoning engines.</p>
+
+                        <div class="flex items-center gap-6">
+                            <!-- Animated Button Wrapper -->
+                            <div class="btn-wrapper">
+                                <div class="line horizontal top" style="height: 1px; width: 100%; top: -1px; left:0;"></div>
+                                <div class="line vertical right" style="width: 1px; height: 100%; top: 0; right: -1px;"></div>
+                                <div class="line horizontal bottom" style="height: 1px; width: 100%; bottom: -1px; left:0;"></div>
+                                <div class="line vertical left" style="width: 1px; height: 100%; top: 0; left: -1px;"></div>
+
+                                <div class="dot top left"></div>
+                                <div class="dot top right"></div>
+                                <div class="dot bottom right"></div>
+                                <div class="dot bottom left"></div>
+
+                                <button class="btn gap-3">
+                                    <span class="font-manrope" style="">Initialize Core</span>
+                                    <iconify-icon icon="solar:arrow-right-linear" width="16" class=""></iconify-icon>
+                                </button>
+                            </div>
+
+                            <button class="w-12 h-12 border border-white/10 flex items-center justify-center hover:border-[#3B82F6] hover:text-[#3B82F6] text-neutral-500 transition-colors bg-white/[0.02]" style="">
+                                <iconify-icon icon="solar:play-linear" width="20" class=""></iconify-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Banner -->
+                <div class="border-t border-white/5 bg-[#080808] p-6 lg:px-12 lg:py-8 flex items-center gap-6 relative z-10" style="">
+                    <span class="text-[#3B82F6] font-mono text-xl font-manrope" style="">///</span>
+                    <span class="font-mono text-xs tracking-widest uppercase text-neutral-500 font-manrope" style="">Latency Removed</span>
+                </div>
+            </div>
+
+            <!-- Middle Column: Visual & Stats -->
+            <div class="lg:col-span-4 flex flex-col border-r border-white/5 relative bg-[#060606]" style="">
+                <!-- Beam Border Vertical -->
+                <div class="beam-border-v"></div>
+
+                <!-- Visual Area -->
+                <div class="relative h-[400px] lg:h-[60%] overflow-hidden group border-b border-white/5" style="">
+                    <!-- Dark Overlay for image -->
+                    <div class="absolute inset-0 bg-[#050505]/40 z-10 mix-blend-multiply"></div>
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&amp;w=2564&amp;auto=format&amp;fit=crop" alt="Abstract Liquid 3D" class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125 opacity-60 transition-transform duration-[2s] group-hover:scale-110">
+                    
+                    <!-- Grid Overlay on Image -->
+                    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgwVjB6IiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==')] z-10 opacity-50"></div>
+
+                    <button class="absolute top-8 right-8 w-14 h-14 border border-white/10 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center hover:border-[#3B82F6] hover:text-[#3B82F6] text-white transition-all z-20 group/btn" style="">
+                        <iconify-icon icon="solar:arrow-right-up-linear" width="24" class="group-hover/btn:rotate-45 transition-transform duration-300"></iconify-icon>
+                    </button>
+                    
+                    <!-- Floating Data Points -->
+                    <div class="absolute bottom-8 left-8 z-20 flex gap-4">
+                        <div class="px-3 py-1 bg-black/80 border border-white/10 backdrop-blur text-[10px] font-mono text-white tracking-widest uppercase font-manrope" style="">
+                            Rendering Node 01
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Area -->
+                <div class="h-auto lg:h-[40%] bg-[#080808] p-8 lg:p-10 flex flex-col justify-between relative overflow-hidden min-h-[300px]">
+                    <div class="absolute inset-0 grid-bg opacity-10"></div>
+                    
+                    <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.15s_both] relative z-10">
+                        <div class="flex justify-between items-start mb-8 lg:mb-0">
+                            <div class="flex gap-2">
+                                <span class="w-2 h-2 rounded-sm bg-[#3B82F6] shadow-[0_0_10px_#3B82F6]" style=""></span>
+                                <span class="w-2 h-2 rounded-sm bg-white/10"></span>
+                                <span class="w-2 h-2 rounded-sm bg-white/10"></span>
+                            </div>
+                            <iconify-icon icon="solar:settings-linear" width="20" class="text-neutral-600 hover:text-white transition-colors cursor-pointer" style=""></iconify-icon>
+                        </div>
+
+                        <div class="">
+                            <div class="text-5xl lg:text-6xl tracking-tighter mb-2 text-white font-manrope font-medium" style="">
+                                98.4<span class="text-2xl text-neutral-600 align-top ml-1 font-manrope font-medium" style="">%</span>
+                            </div>
+                            <p class="font-mono text-[10px] text-neutral-500 uppercase tracking-widest mb-8 font-manrope" style="">Processing Capacity</p>
+                            
+                            <!-- Progress Line -->
+                            <div class="w-full h-px bg-white/10 relative overflow-hidden">
+                                <div class="absolute top-0 left-0 h-full w-[70%] bg-[#3B82F6] shadow-[0_0_15px_#3B82F6]" style=""></div>
+                            </div>
+                            <div class="flex justify-between mt-4 font-mono text-[10px] text-neutral-600" style="">
+                                <span class="hover:text-[#3B82F6] cursor-pointer transition-colors font-manrope" style="">GEN 1</span>
+                                <span class="hover:text-[#3B82F6] cursor-pointer transition-colors font-manrope" style="">GEN 2</span>
+                                <span class="text-white font-manrope" style="">GEN 3</span>
+                                <span class="hover:text-[#3B82F6] cursor-pointer transition-colors font-manrope" style="">GEN 4</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: List -->
+            <div class="lg:col-span-3 flex flex-col bg-[#050505] relative">
+                <!-- Beam Border Vertical -->
+                <div class="beam-border-v"></div>
+
+                <!-- Item 1 -->
+                <div class="flex-1 p-8 lg:p-10 border-b border-white/5 hover:bg-white/[0.02] transition-colors group cursor-pointer flex flex-col justify-center relative overflow-hidden min-h-[160px]" style="">
+                    <div class="absolute right-0 top-0 w-[2px] h-0 bg-[#3B82F6] group-hover:h-full transition-all duration-500 ease-in-out" style=""></div>
+                    <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+                        <span class="font-mono text-[10px] text-neutral-600 mb-4 block group-hover:text-[#3B82F6] transition-colors font-manrope" style="">/01</span>
+                        <h3 class="text-2xl lg:text-3xl tracking-tight mb-2 text-white group-hover:translate-x-2 transition-transform duration-300 font-manrope font-medium" style="">ADAPTIVE</h3>
+                        <p class="text-xs text-neutral-500 font-mono tracking-wide font-manrope" style="">Real-time mutation</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex-1 p-8 lg:p-10 border-b border-white/5 hover:bg-white/[0.02] transition-colors group cursor-pointer flex flex-col justify-center relative overflow-hidden min-h-[160px]" style="">
+                    <div class="absolute right-0 top-0 w-[2px] h-0 bg-[#3B82F6] group-hover:h-full transition-all duration-500 ease-in-out delay-75" style=""></div>
+                    <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.15s_both]">
+                        <span class="font-mono text-[10px] text-neutral-600 mb-4 block group-hover:text-[#3B82F6] transition-colors font-manrope" style="">/02</span>
+                        <h3 class="text-2xl lg:text-3xl tracking-tight mb-2 text-white group-hover:translate-x-2 transition-transform duration-300 font-manrope font-medium" style="">COGNITIVE</h3>
+                        <p class="text-xs text-neutral-500 font-mono tracking-wide font-manrope" style="">Deep logic chains</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex-1 p-8 lg:p-10 border-b border-white/5 hover:bg-white/[0.02] transition-colors group cursor-pointer flex flex-col justify-center relative overflow-hidden min-h-[160px]" style="">
+                    <div class="absolute right-0 top-0 w-[2px] h-0 bg-[#3B82F6] group-hover:h-full transition-all duration-500 ease-in-out delay-150" style=""></div>
+                    <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both]">
+                        <span class="font-mono text-[10px] text-neutral-600 mb-4 block group-hover:text-[#3B82F6] transition-colors font-manrope" style="">/03</span>
+                        <h3 class="text-2xl lg:text-3xl tracking-tight mb-2 text-white group-hover:translate-x-2 transition-transform duration-300 font-manrope font-medium" style="">MODULAR</h3>
+                        <p class="text-xs text-neutral-500 font-mono tracking-wide font-manrope" style="">Stackable logic</p>
+                    </div>
+                </div>
+
+                <!-- CTA Item -->
+                <div class="flex-1 p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden group cursor-pointer min-h-[160px]">
+                    <!-- Background Color Animation -->
+                    <div class="absolute inset-0 bg-[#3B82F6] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-0" style=""></div>
+                    
+                    <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.25s_both] relative z-10 group-hover:text-white transition-colors duration-300">
+                        <h3 class="text-2xl tracking-tight uppercase mb-1 text-white group-hover:text-white font-manrope font-medium" style="">Access Beta</h3>
+                        <p class="font-mono text-[10px] uppercase tracking-wider text-neutral-500 group-hover:text-white/80 font-manrope" style="">Limited nodes open</p>
+                    </div>
+                    <iconify-icon icon="solar:arrow-right-up-linear" width="32" class="absolute bottom-8 right-8 text-neutral-700 group-hover:text-white group-hover:rotate-45 transition-transform duration-300 z-10" style=""></iconify-icon>
+                </div>
+            </div>
+        </main>
+
+        <!-- System Architecture (Adapted About Us) -->
+        <div class="flex flex-col lg:px-12 overflow-hidden bg-[#050505] w-full z-10 border-white/5 border-t pt-24 pr-6 pb-24 pl-6 relative" style="">
+            <!-- Grid Background Overlay -->
+            <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+
+            <div class="max-w-[1400px] w-full mx-auto relative z-10">
+                <!-- Badge -->
+                <div class="flex justify-start mb-12 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-blue-500/[0.05] border border-blue-500/20 backdrop-blur-sm text-[#3B82F6] text-[10px] font-mono font-medium tracking-widest uppercase hover:bg-blue-500/10 transition-colors cursor-default" style="">
+                        <iconify-icon icon="solar:server-square-linear" width="16"></iconify-icon>
+                        <span class="font-manrope" style="">System Architecture</span>
+                    </div>
+                </div>
+
+                <!-- Main Headline / Text Block -->
+                <div class="relative animate-on-scroll [animation:animationIn_0.8s_ease-out_0.15s_both]">
+                    <!-- Subtle background glow behind text -->
+                    <div class="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[80%] bg-[#3B82F6]/5 blur-[120px] -z-10 rounded-full pointer-events-none"></div>
+
+                    <h3 class="leading-[1.1] text-3xl md:text-5xl lg:text-6xl text-neutral-500 tracking-tight max-w-5xl font-manrope font-medium" style="">
+                        <span class="text-white font-manrope font-medium" style="">We construct the neural pathways</span>
+                        for the next generation of synthetic intelligence. A decentralized lattice designed for 
+                        <span class="text-white font-manrope font-medium" style="">infinite scalability</span>
+                        and zero-latency reasoning.
+                    </h3>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8 mt-24 pt-12 border-t border-white/5 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both]" style="">
+                    <!-- Stat 1 -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter font-manrope font-medium" style="">
+                            99.99<span class="text-2xl text-neutral-600 font-manrope font-medium" style="">%</span>
+                        </div>
+                        <div class="text-sm font-mono tracking-widest uppercase text-neutral-500 font-manrope" style="">
+                            System Uptime
+                        </div>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter font-manrope font-medium" style="">
+                            840<span class="text-2xl text-neutral-600 font-manrope font-medium" style="">PF</span>
+                        </div>
+                        <div class="text-sm font-mono tracking-widest uppercase text-neutral-500 font-manrope" style="">
+                            Compute Power
+                        </div>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter font-manrope font-medium" style="">
+                            45<span class="text-2xl text-neutral-600 font-manrope font-medium" style="">B+</span>
+                        </div>
+                        <div class="text-sm font-mono tracking-widest uppercase text-neutral-500 font-manrope" style="">
+                            Parameters Tuned
+                        </div>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="flex flex-col gap-2">
+                        <div class="text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter font-manrope font-medium" style="">
+                            &lt;12<span class="text-2xl text-neutral-600 font-manrope font-medium" style="">ms</span>
+                        </div>
+                        <div class="text-sm font-mono tracking-widest uppercase text-neutral-500 font-manrope" style="">
+                            Global Latency
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company Logos -->
+                <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.25s_both] mt-24">
+                    <p class="text-[10px] font-mono font-medium mb-10 uppercase tracking-widest text-neutral-600 font-manrope" style="">
+                        Integrated with Core Infrastructure
+                    </p>
+                    <div class="flex flex-wrap gap-x-12 gap-y-8 items-center">
+  <iconify-icon icon="simple-icons:vercel" width="96" height="36" class="text-white opacity-40 grayscale hover:opacity-100 hover:text-blue-500 hover:grayscale-0 transition-all duration-700" style=""></iconify-icon>
+  <iconify-icon icon="simple-icons:stripe" width="96" height="36" class="text-white opacity-40 grayscale hover:opacity-100 hover:text-blue-500 hover:grayscale-0 transition-all duration-700" style=""></iconify-icon>
+  
+  <iconify-icon icon="simple-icons:nvidia" width="96" height="36" class="text-white opacity-40 grayscale hover:opacity-100 hover:text-blue-500 hover:grayscale-0 transition-all duration-700" style=""></iconify-icon>
+  <iconify-icon icon="simple-icons:datadog" width="96" height="36" class="text-white opacity-40 grayscale hover:opacity-100 hover:text-blue-500 hover:grayscale-0 transition-all duration-700" style=""></iconify-icon>
+  <iconify-icon icon="simple-icons:amazonaws" width="96" height="36" class="text-white opacity-40 grayscale hover:opacity-100 hover:text-blue-500 hover:grayscale-0 transition-all duration-700" style=""></iconify-icon>
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits / Performance -->
+        <div class="flex flex-col lg:flex-row w-full border-t border-white/5 bg-[#050505] relative z-10 group/section" style="">
+    
+            <!-- Left Panel -->
+            <div class="lg:w-[40%] lg:border-b-0 lg:border-r lg:p-16 flex flex-col overflow-hidden bg-[#050505] w-full border-white/5 border-b pt-8 pr-8 pb-8 pl-8 relative justify-between" style="">
+                <!-- Background Effects -->
+                <div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+                <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" style=""></div>
+
+                <div class="relative z-10 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1 mb-16 rounded-full border border-white/10 bg-white/[0.02] w-fit" style="">
+                        <iconify-icon icon="solar:bolt-linear" class="text-white text-xs" style=""></iconify-icon>
+                        <span class="text-[10px] font-mono font-medium tracking-widest uppercase text-neutral-400 font-manrope" style="">System Core</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h2 class="text-5xl lg:text-7xl text-white leading-[0.95] tracking-tight mb-8 font-instrument-serif" style="">
+                        <span class="block mb-2 text-neutral-300 font-manrope font-medium" style="">Architected for</span>
+                        <span class="text-white font-manrope font-medium" style="">Synaptic</span> <span class="text-neutral-700 font-manrope font-medium" style="">&amp;</span> 
+                        <span class="text-neutral-500 font-manrope font-medium" style="">Velocity</span>
+                    </h2>
+
+                    <!-- Description -->
+                    <p class="text-neutral-500 text-sm lg:text-base leading-relaxed max-w-sm font-light mt-8 font-manrope" style="">
+                        We don't just process data; we engineer digital nervous systems that evolve with your cognitive throughput demands.
+                    </p>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="relative z-10 mt-16 lg:mt-0 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.15s_both]">
+                    <button class="group md:w-auto inline-flex overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] w-full rounded-none p-[1px] relative items-center justify-center">
+                        <span class="absolute inset-[-100%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_75%,#3B82F6_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+                        <span class="absolute inset-0 rounded-none bg-white/10 transition-opacity duration-300 group-hover:opacity-0"></span>
+                        <span class="flex items-center justify-between gap-8 text-[11px] uppercase transition-colors duration-300 group-hover:bg-[#080808] font-medium text-white tracking-widest font-mono bg-[#050505] w-full h-full rounded-none pt-4 pr-6 pb-4 pl-6 relative shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                            <span class="relative z-10">Initialize Integration</span>
+<iconify-icon icon="solar:arrow-right-linear" width="18" class="relative z-10 text-white transition-transform duration-300 group-hover:translate-x-1" style=""></iconify-icon>
+</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Grid -->
+            <div class="w-full lg:w-[60%] grid grid-cols-1 md:grid-cols-2">
+                <div class="p-10 lg:p-14 border-b md:border-r border-white/5 flex flex-col gap-6 hover:bg-white/[0.01] transition-colors group relative animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]" style="">
+                    <div class="w-12 h-12 border border-white/10 flex items-center justify-center rounded bg-black/50 text-neutral-400 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-colors duration-300" style="">
+                        <iconify-icon icon="solar:rocket-2-linear" width="24"></iconify-icon>
+                    </div>
+                    <div class="">
+                        <h3 class="text-2xl text-white mb-3 font-manrope font-medium" style="">Latency Nullified</h3>
+                        <p class="text-neutral-500 text-sm leading-relaxed font-light font-manrope" style="">Deploy inference-ready nodes in milliseconds. Our pre-warmed neural pathways eliminate cold-start latency entirely.</p>
+                    </div>
+                </div>
+
+                <div class="lg:p-14 flex flex-col gap-6 hover:bg-white/[0.01] transition-colors group border-white/5 border-b pt-10 pr-10 pb-10 pl-10 relative gap-x-6 gap-y-6 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.15s_both]" style="">
+                    <div class="w-12 h-12 border border-white/10 flex items-center justify-center rounded bg-black/50 text-neutral-400 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-colors duration-300" style="">
+                        <iconify-icon icon="solar:shield-check-linear" width="24" class=""></iconify-icon>
+                    </div>
+                    <div class="">
+                        <h3 class="text-2xl text-white mb-3 font-manrope font-medium" style="">Neural Encryption</h3>
+                        <p class="text-neutral-500 text-sm leading-relaxed font-light font-manrope" style="">Quantum-resistant cryptography for every synapse. Your logic models remain sovereign within our secure enclave.</p>
+                    </div>
+                </div>
+
+                <div class="p-10 lg:p-14 border-b md:border-r border-white/5 flex flex-col gap-6 hover:bg-white/[0.01] transition-colors group relative animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both]" style="">
+                    <div class="w-12 h-12 border border-white/10 flex items-center justify-center rounded bg-black/50 text-neutral-400 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-colors duration-300" style="">
+                        <iconify-icon icon="solar:graph-new-up-linear" width="24" class=""></iconify-icon>
+                    </div>
+                    <div class="">
+                        <h3 class="text-2xl text-white mb-3 font-manrope font-medium" style="">Cognitive Scaling</h3>
+                        <p class="leading-relaxed text-sm font-light text-neutral-500 font-manrope">Architecture that scales from a single neuron to a global hive mind without manual intervention or oversight.</p>
+                    </div>
+                </div>
+
+                <div class="p-10 lg:p-14 border-b border-white/5 flex flex-col gap-6 hover:bg-white/[0.01] transition-colors group relative animate-on-scroll [animation:animationIn_0.8s_ease-out_0.25s_both]" style="">
+                    <div class="w-12 h-12 border border-white/10 flex items-center justify-center rounded bg-black/50 text-neutral-400 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-colors duration-300" style="">
+                        <iconify-icon icon="solar:code-square-linear" width="24"></iconify-icon>
+                    </div>
+                    <div class="">
+                        <h3 class="text-2xl text-white mb-3 font-manrope font-medium" style="">Protocol Native</h3>
+                        <p class="text-neutral-500 text-sm leading-relaxed font-light font-manrope" style="">Direct integration with PyTorch and TensorFlow. Written by machine learning engineers for AI researchers.</p>
+                    </div>
+                </div>
+
+                <div class="p-10 lg:p-14 md:border-r border-white/5 flex flex-col gap-6 hover:bg-white/[0.01] transition-colors group relative animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both]" style="">
+                    <div class="w-12 h-12 border border-white/10 flex items-center justify-center rounded bg-black/50 text-neutral-400 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-colors duration-300" style="">
+                        <iconify-icon icon="solar:user-hand-up-linear" width="24" class=""></iconify-icon>
+                    </div>
+                    <div class="">
+                        <h3 class="text-2xl text-white mb-3 font-manrope font-medium" style="">Direct Uplink</h3>
+                        <p class="text-neutral-500 text-sm leading-relaxed font-light font-manrope" style="">Instant access to core architects. We don't hide behind automated responses when your model training is live.</p>
+                    </div>
+                </div>
+
+                <div class="p-10 lg:p-14 flex flex-col gap-6 hover:bg-white/[0.01] transition-colors group relative animate-on-scroll [animation:animationIn_0.8s_ease-out_0.35s_both]">
+                    <div class="w-12 h-12 border border-white/10 flex items-center justify-center rounded bg-black/50 text-neutral-400 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/30 transition-colors duration-300" style="">
+                        <iconify-icon icon="solar:global-linear" width="24" class=""></iconify-icon>
+                    </div>
+                    <div class="">
+                        <h3 class="text-2xl text-white mb-3 font-manrope font-medium" style="">Global Mesh</h3>
+                        <p class="text-neutral-500 text-sm leading-relaxed font-light font-manrope" style="">Data propagation across 40+ edge regions ensuring your logic executes as close to the input source as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="md:px-12 overflow-hidden flex flex-col z-10 text-center bg-[#050505] border-white/5 border-t pt-24 pr-6 pb-24 pl-6 relative items-center">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+            
+            <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both] flex flex-col w-full items-center">
+    <h2 class="md:text-6xl lg:text-7xl text-5xl font-medium text-white tracking-tighter font-manrope mb-6" style="">Ready to scale?</h2>
+    <p class="md:text-xl leading-relaxed text-lg font-light text-neutral-400 font-manrope max-w-2xl mb-12" style="">Join thousands of teams accelerating inference, cutting global latency, and shipping reliable intelligence across every node.</p>
+    
+    <div class="flex flex-col sm:flex-row gap-5 gap-x-5 gap-y-5 items-center">
+        <button class="uppercase hover:bg-[#3B82F6] hover:text-white hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transition-all hover:-translate-y-1 duration-300 flex group text-xs font-medium text-black tracking-widest font-mono bg-white rounded-none pt-4 pr-8 pb-4 pl-8 gap-x-3 gap-y-3 items-center">Initialize Node<iconify-icon icon="solar:bolt-bold" width="14" class="group-hover:rotate-12 transition-transform"></iconify-icon></button>
+        
+        <button class="uppercase hover:bg-[#3B82F6]/10 hover:text-[#3B82F6] hover:border-[#3B82F6] transition-all flex group hover:shadow-[0_0_20px_rgba(59,130,246,0.2)] text-xs font-medium text-neutral-300 tracking-widest font-mono border-white/10 border rounded-none pt-4 pr-8 pb-4 pl-8 gap-x-3 gap-y-3 items-center" style="">
+            Read Protocol
+            <iconify-icon icon="solar:arrow-right-linear" width="14" class="group-hover:translate-x-1 transition-transform text-neutral-500 group-hover:text-[#3B82F6]" style=""></iconify-icon>
+        </button>
+    </div>
+</div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="md:px-12 z-10 bg-[#050505] border-white/5 border-t pt-16 pr-6 pb-8 pl-6 relative -multi" style="">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+                <div class="lg:col-span-2 animate-on-scroll [animation:animationIn_0.8s_ease-out_0.1s_both]">
+                    <div class="text-xl font-bold text-white tracking-tight font-manrope mb-4" style="">neuralmind<span class="text-neutral-400" style="">.io</span></div>
+                    <p class="leading-relaxed text-sm text-neutral-500 font-manrope max-w-xs" style="">
+                        The neural layer for high-velocity teams—automate workflows, harden systems, and scale intelligence across every node.
+                    </p>
+                </div>
+                
+                <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.15s_both]">
+                    <h4 class="text-white font-medium text-sm mb-6 font-manrope" style="">Product</h4>
+                    <ul class="space-y-4 text-sm text-neutral-500 font-manrope" style="">
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Features</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Integrations</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Pricing</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Changelog</a></li>
+                    </ul>
+                </div>
+                
+                 <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.2s_both]">
+                    <h4 class="text-white font-medium text-sm mb-6 font-manrope" style="">Resources</h4>
+                    <ul class="space-y-4 text-sm text-neutral-500 font-manrope" style="">
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Documentation</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">API Reference</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Community</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Blog</a></li>
+                    </ul>
+                </div>
+
+                 <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.25s_both]">
+                    <h4 class="text-white font-medium text-sm mb-6 font-manrope" style="">Company</h4>
+                    <ul class="space-y-4 text-sm text-neutral-500 font-manrope" style="">
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">About</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Careers</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Legal</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors" style="">Contact</a></li>
+                    </ul>
+                </div>
+
+                 <div class="animate-on-scroll [animation:animationIn_0.8s_ease-out_0.3s_both]">
+                    <h4 class="text-white font-medium text-sm mb-6 font-manrope" style="">Legal</h4>
+                    <ul class="space-y-4 text-sm text-neutral-500 font-manrope" style="">
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Privacy</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Terms</a></li>
+                        <li class=""><a href="#" class="hover:text-blue-500 transition-colors" style="">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-4 border-white/5 border-t pt-8 gap-x-4 gap-y-4 items-center justify-between" style="">
+                <p class="text-xs text-neutral-600 font-manrope" style="">© 2025 Neuralmind Inc. All rights reserved.</p>
+                <div class="flex gap-6 text-neutral-500 items-center" style="">
+                    <a href="#" class="hover:text-blue-500 transition-colors" style="">
+                        <iconify-icon icon="simple-icons:x" width="16"></iconify-icon>
+                    </a>
+                    <a href="#" class="hover:text-blue-500 transition-colors" style="">
+                        <iconify-icon icon="simple-icons:github" width="18"></iconify-icon>
+                    </a>
+                    <a href="#" class="hover:text-blue-500 transition-colors" style="">
+                        <iconify-icon icon="simple-icons:linkedin" width="18"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body></html>

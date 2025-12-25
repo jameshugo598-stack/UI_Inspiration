@@ -1,0 +1,354 @@
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurum | Custom Fine Jewellery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom font rendering for that crisp 'Linear' look */
+        body {
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+
+<body class="bg-[#050505] text-zinc-300 font-sans selection:bg-yellow-900/30 selection:text-yellow-200">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-[#050505]/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="#" class="text-2xl font-medium tracking-tight text-white">AURUM.</a>
+                <div class="hidden md:flex items-center gap-6 text-sm font-normal text-zinc-400">
+                    <a href="#" class="hover:text-white transition-colors">Shop</a>
+                    <a href="#" class="hover:text-white transition-colors">Personalize</a>
+                    <a href="#" class="hover:text-white transition-colors">Our Story</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <button class="text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+                <button class="text-zinc-400 hover:text-white transition-colors relative">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span class="absolute -top-1 -right-1 w-2 h-2 bg-yellow-600 rounded-full"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Ambient Background Glow -->
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-yellow-600/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-yellow-900/30 bg-yellow-900/10 text-yellow-500 text-sm mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+                </span>
+                New Coordinate Collection Available
+            </div>
+
+            <h1 class="text-5xl lg:text-7xl font-medium text-white tracking-tight mb-6 leading-[1.1]">
+                Tell your story <br class="hidden md:block">
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-500 to-yellow-200">etched
+                    in gold.</span>
+            </h1>
+
+            <p class="text-lg text-zinc-400 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                Handcrafted custom jewellery designed to hold your most cherished memories. From coordinates of where
+                you met, to the names of those you love.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                    class="h-12 px-8 rounded-full bg-white text-black font-medium hover:bg-zinc-200 transition-colors flex items-center gap-2">
+                    Start Customizing
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+                <button
+                    class="h-12 px-8 rounded-full border border-zinc-800 text-zinc-300 font-medium hover:bg-zinc-900 transition-colors">
+                    View Lookbook
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- The Collection (Based on Image) -->
+    <section class="border-y border-white/5 bg-zinc-950/50">
+        <div class="max-w-7xl mx-auto">
+            <!-- Grid Layout mimicking the reference image -->
+            <div class="grid grid-cols-2 md:grid-cols-5 divide-x divide-white/5 border-x border-white/5">
+
+                <!-- Item 1: Bracelets -->
+                <div
+                    class="group relative aspect-[4/5] flex flex-col items-center justify-end p-6 border-b border-white/5 md:border-b-0 cursor-pointer bg-zinc-950 hover:bg-[#0a0a0a] transition-colors duration-500">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                        alt="Gold Cuff Bracelet"
+                        class="absolute inset-0 w-full h-3/4 object-contain object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="relative z-10 text-center">
+                        <h3 class="text-xl font-medium text-white tracking-tight mb-1">Bracelets</h3>
+                        <p class="text-sm text-zinc-500 group-hover:text-yellow-500 transition-colors">Shop Coordinates
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Necklaces -->
+                <div
+                    class="group relative aspect-[4/5] flex flex-col items-center justify-end p-6 border-b border-white/5 md:border-b-0 cursor-pointer bg-zinc-950 hover:bg-[#0a0a0a] transition-colors duration-500">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg"
+                        alt="Vertical Bar Necklace"
+                        class="absolute inset-0 w-full h-3/4 object-contain object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="relative z-10 text-center">
+                        <h3 class="text-xl font-medium text-white tracking-tight mb-1">Necklaces</h3>
+                        <p class="text-sm text-zinc-500 group-hover:text-yellow-500 transition-colors">Engravable Bars
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Rings -->
+                <div
+                    class="group relative aspect-[4/5] flex flex-col items-center justify-end p-6 border-b border-white/5 md:border-b-0 cursor-pointer bg-zinc-950 hover:bg-[#0a0a0a] transition-colors duration-500">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                        alt="Signet Ring"
+                        class="absolute inset-0 w-full h-3/4 object-contain object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="relative z-10 text-center">
+                        <h3 class="text-xl font-medium text-white tracking-tight mb-1">Rings</h3>
+                        <p class="text-sm text-zinc-500 group-hover:text-yellow-500 transition-colors">Classic Signets
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Best Sellers (Initial) -->
+                <div
+                    class="group relative aspect-[4/5] flex flex-col items-center justify-end p-6 border-b border-white/5 md:border-b-0 cursor-pointer bg-zinc-950 hover:bg-[#0a0a0a] transition-colors duration-500">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4734259a-bad7-422f-981e-ce01e79184f2_1600w.jpg"
+                        alt="Initial Necklace"
+                        class="absolute inset-0 w-full h-3/4 object-contain object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="relative z-10 text-center">
+                        <h3 class="text-xl font-medium text-white tracking-tight mb-1">Best Sellers</h3>
+                        <p class="text-sm text-zinc-500 group-hover:text-yellow-500 transition-colors">Monograms</p>
+                    </div>
+                </div>
+
+                <!-- Item 5: Paws & Whiskers (Col-span-2 on mobile to fill gap) -->
+                <div
+                    class="group relative aspect-[4/5] col-span-2 md:col-span-1 flex flex-col items-center justify-end p-6 cursor-pointer bg-zinc-950 hover:bg-[#0a0a0a] transition-colors duration-500">
+                    <!-- Badge -->
+                    <div class="absolute top-0 right-0 bg-[#8B7355] text-white text-xs font-medium px-4 py-1.5 z-20">
+                        New Collection
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&amp;w=600&amp;auto=format&amp;fit=crop"
+                        alt="Pet Pendant"
+                        class="absolute inset-0 w-full h-3/4 object-contain object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700">
+                    <div class="relative z-10 text-center">
+                        <h3 class="text-xl font-medium text-white tracking-tight mb-1">Paws &amp; Whiskers</h3>
+                        <p class="text-sm text-zinc-500 group-hover:text-yellow-500 transition-colors">Pet Portraits</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Demo Section -->
+    <section class="py-24 lg:py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <!-- Left: Text -->
+            <div class="order-2 lg:order-1">
+                <h2 class="text-4xl lg:text-5xl font-medium text-white tracking-tight mb-6">Make it meaningful.</h2>
+                <p class="text-lg text-zinc-400 mb-10 font-light leading-relaxed">
+                    Every piece is made to order in our studio. Choose your metal, select your inscription, and wear a
+                    moment in time.
+                </p>
+
+                <div class="space-y-8">
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 text-yellow-500">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl text-white font-medium mb-1">Precise Coordinates</h4>
+                            <p class="text-zinc-500 text-lg">We convert any address into exact GPS coordinates for
+                                engraving.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center shrink-0 text-yellow-500">
+                            <i data-lucide="pen-tool" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl text-white font-medium mb-1">Custom Portraits</h4>
+                            <p class="text-zinc-500 text-lg">Upload a photo of your pet for a hand-drawn sketch
+                                engraving.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Interactive Card UI -->
+            <div
+                class="order-1 lg:order-2 bg-zinc-900/30 border border-white/5 rounded-2xl p-8 backdrop-blur-sm relative">
+                <!-- Decorative gradient behind card -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-yellow-600/20 rounded-full blur-[80px]"></div>
+
+                <div class="space-y-8 relative z-10">
+                    <div class="flex justify-center mb-8">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&amp;w=400&amp;auto=format&amp;fit=crop"
+                            class="h-48 object-contain drop-shadow-2xl" alt="Preview">
+                    </div>
+
+                    <!-- Custom Controls -->
+                    <div class="space-y-6">
+                        <!-- Custom Input -->
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-2">Engraving Text</label>
+                            <div class="relative">
+                                <input type="text" value="40.7128° N, 74.0060° W"
+                                    class="w-full bg-[#0a0a0a] border border-white/10 rounded-lg py-3 px-4 text-white focus:outline-none focus:border-yellow-600/50 transition-colors font-mono text-sm">
+                                <i data-lucide="check" class="absolute right-4 top-3.5 w-4 h-4 text-green-500"></i>
+                            </div>
+                        </div>
+
+                        <!-- Custom Radio/Toggle -->
+                        <div>
+                            <label class="block text-sm text-zinc-400 mb-3">Material</label>
+                            <div class="flex gap-3">
+                                <label class="cursor-pointer group">
+                                    <input type="radio" name="material" class="hidden peer" checked="">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-200 to-yellow-600 border-2 border-transparent peer-checked:border-white ring-2 ring-transparent peer-checked:ring-yellow-500/50 transition-all">
+                                    </div>
+                                    <span
+                                        class="block text-center text-xs mt-2 text-zinc-500 group-hover:text-white">18k
+                                        Gold</span>
+                                </label>
+                                <label class="cursor-pointer group">
+                                    <input type="radio" name="material" class="hidden peer">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gradient-to-br from-gray-100 to-gray-400 border-2 border-transparent peer-checked:border-white ring-2 ring-transparent peer-checked:ring-gray-400/50 transition-all">
+                                    </div>
+                                    <span
+                                        class="block text-center text-xs mt-2 text-zinc-500 group-hover:text-white">Silver</span>
+                                </label>
+                                <label class="cursor-pointer group">
+                                    <input type="radio" name="material" class="hidden peer">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gradient-to-br from-red-200 to-red-400 border-2 border-transparent peer-checked:border-white ring-2 ring-transparent peer-checked:ring-red-400/50 transition-all">
+                                    </div>
+                                    <span
+                                        class="block text-center text-xs mt-2 text-zinc-500 group-hover:text-white">Rose</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Custom Slider -->
+                        <div class="pt-2">
+                            <div class="flex justify-between text-sm text-zinc-400 mb-2">
+                                <span>Chain Length</span>
+                                <span class="text-white font-mono">18"</span>
+                            </div>
+                            <div class="h-1 bg-zinc-800 rounded-full w-full relative">
+                                <div class="absolute left-0 top-0 h-full w-2/3 bg-yellow-600 rounded-full"></div>
+                                <div
+                                    class="absolute left-2/3 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg cursor-pointer hover:scale-110 transition-transform">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button
+                            class="w-full py-4 bg-white hover:bg-zinc-200 text-black font-medium rounded-lg mt-4 transition-colors">
+                            Add to Cart - $145.00
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Footer CTA -->
+    <section class="border-t border-white/5 py-24 text-center bg-zinc-950">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl lg:text-4xl font-medium text-white tracking-tight mb-8">
+                "The most thoughtful gift I've ever given. The quality is unmatched and the engraving is perfect."
+            </h2>
+            <div class="flex items-center justify-center gap-3 mb-10">
+                <div class="flex text-yellow-500">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+                <span class="text-lg text-zinc-400">Over 15,000 5-star reviews</span>
+            </div>
+            <a href="#"
+                class="inline-block text-white border-b border-white pb-1 hover:text-yellow-500 hover:border-yellow-500 transition-all">Follow
+                us on Instagram @aurum_jewelry</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h5 class="text-white font-medium mb-4">Shop</h5>
+                    <ul class="space-y-3 text-lg text-zinc-500">
+                        <li><a href="#" class="hover:text-white transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Necklaces</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Rings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-4">Support</h5>
+                    <ul class="space-y-3 text-lg text-zinc-500">
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping &amp; Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Warranty</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-2">
+                    <h5 class="text-white font-medium mb-4">Join the list</h5>
+                    <p class="text-zinc-500 text-lg mb-4">Unlock 10% off your first order.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Enter your email"
+                            class="bg-zinc-900 border border-white/10 text-white px-4 py-3 rounded-md w-full focus:outline-none focus:border-zinc-700 transition-colors">
+                        <button
+                            class="bg-white text-black px-6 py-3 rounded-md font-medium hover:bg-zinc-200 transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="flex flex-col md:flex-row justify-between items-center text-sm text-zinc-600 pt-8 border-t border-white/5">
+                <p>© 2024 AURUM. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-zinc-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-zinc-400">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

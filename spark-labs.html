@@ -1,0 +1,581 @@
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spark Labs - AI Creative Partner</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+background-color: #0B0C0E;
+color: #EEEEF0;
+}
+.text-gradient {
+background: linear-gradient(to bottom right, #FFFFFF 30%, #9ca3af 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.text-gradient-orange {
+background: linear-gradient(to bottom right, #fb923c 30%, #ea580c 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.glass-nav {
+background: rgba(11, 12, 14, 0.6);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+}
+.glass-card {
+background: rgba(255, 255, 255, 0.02);
+border: 1px solid rgba(255, 255, 255, 0.06);
+backdrop-filter: blur(8px);
+}
+.mask-linear {
+mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+.bg-grid {
+background-size: 40px 40px;
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 0px; }
+details > summary {
+list-style: none;
+}
+details > summary::-webkit-details-marker {
+display: none;
+}
+</style>
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist">.font-geist { font-family: 'Geist', sans-serif !important; }</style><link id="all-fonts-link-font-roboto" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-roboto">.font-roboto { font-family: 'Roboto', sans-serif !important; }</style><link id="all-fonts-link-font-montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-montserrat">.font-montserrat { font-family: 'Montserrat', sans-serif !important; }</style><link id="all-fonts-link-font-poppins" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-poppins">.font-poppins { font-family: 'Poppins', sans-serif !important; }</style><link id="all-fonts-link-font-playfair" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&amp;display=swap"><style id="all-fonts-style-font-playfair">.font-playfair { font-family: 'Playfair Display', serif !important; }</style><link id="all-fonts-link-font-instrument-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-instrument-serif">.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }</style><link id="all-fonts-link-font-merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap"><style id="all-fonts-style-font-merriweather">.font-merriweather { font-family: 'Merriweather', serif !important; }</style><link id="all-fonts-link-font-bricolage" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-bricolage">.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }</style><link id="all-fonts-link-font-jakarta" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-jakarta">.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }</style><link id="all-fonts-link-font-manrope" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-manrope">.font-manrope { font-family: 'Manrope', sans-serif !important; }</style><link id="all-fonts-link-font-space-grotesk" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-space-grotesk">.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }</style><link id="all-fonts-link-font-work-sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-work-sans">.font-work-sans { font-family: 'Work Sans', sans-serif !important; }</style><link id="all-fonts-link-font-pt-serif" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-pt-serif">.font-pt-serif { font-family: 'PT Serif', serif !important; }</style><link id="all-fonts-link-font-geist-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-geist-mono">.font-geist-mono { font-family: 'Geist Mono', monospace !important; }</style><link id="all-fonts-link-font-space-mono" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&amp;display=swap"><style id="all-fonts-style-font-space-mono">.font-space-mono { font-family: 'Space Mono', monospace !important; }</style><link id="all-fonts-link-font-quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap"><style id="all-fonts-style-font-quicksand">.font-quicksand { font-family: 'Quicksand', sans-serif !important; }</style><link id="all-fonts-link-font-nunito" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&amp;display=swap"><style id="all-fonts-style-font-nunito">.font-nunito { font-family: 'Nunito', sans-serif !important; }</style></head>
+<body class="antialiased selection:bg-orange-500/30 selection:text-orange-200">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/[0.06]">
+        <div class="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2.5 group cursor-pointer">
+                <div class="relative flex items-center justify-center w-8 h-8 rounded bg-gradient-to-b from-neutral-800 to-neutral-900 border border-white/10 shadow-inner group-hover:border-orange-500/30 transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" class="lucide lucide-sparkles w-4 h-4 text-orange-500"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+                </div>
+                <span class="text-sm font-medium tracking-tight text-neutral-200">Spark Labs</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#" class="text-sm text-neutral-400 hover:text-white transition-colors duration-200">Work</a>
+                <a href="#" class="text-sm text-neutral-400 hover:text-white transition-colors duration-200">Services</a>
+                <a href="#" class="text-sm text-neutral-400 hover:text-white transition-colors duration-200">Pricing</a>
+                <a href="#" class="text-sm text-neutral-400 hover:text-white transition-colors duration-200">FAQ</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="#" class="hidden md:block text-sm text-neutral-400 hover:text-white transition-colors">Log in</a>
+                <a href="#" class="px-4 py-1.5 text-xs font-medium bg-white text-black rounded-full hover:bg-neutral-200 transition-colors duration-200">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute inset-0 bg-grid opacity-30 z-[-1] mask-linear h-[800px]"></div>
+        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-orange-600/10 blur-[120px] rounded-full z-[-1] pointer-events-none"></div>
+
+        <div class="max-w-[1000px] mx-auto px-6 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-sm mb-8 animate-fade-in-up">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                <span class="text-xs font-medium text-neutral-300 tracking-wide">Now accepting new clients</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter mb-8 leading-[1.05] md:leading-[1.1]">
+                <span class="text-gradient">Visuals That S</span><br>
+                <span class="text-white">Made With AI.</span><br>
+                <span class="text-neutral-500">Delivered Fast.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-[#8A8F98] max-w-2xl mx-auto leading-relaxed mb-10 font-normal">
+                Launch campaigns in hours, not weeks—get professional visuals fast and start seeing results sooner.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                <button class="h-10 px-6 rounded-full bg-white text-black text-sm font-medium hover:bg-neutral-200 transition-all flex items-center gap-2 group">
+                    Book a 15-minute chat
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 group-hover:translate-x-0.5 transition-transform text-neutral-500"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Transition Text -->
+    <section class="py-24 border-y border-white/[0.06] bg-[#0B0C0E]/50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-4xl font-medium text-neutral-200 leading-tight tracking-tight">
+                "I create professional videos and graphics for your business using AI — delivered in hours at a fraction of traditional costs."
+            </h2>
+        </div>
+    </section>
+
+    <!-- Bento Grid Section -->
+    <section class="py-24 relative">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[minmax(180px,auto)]">
+                
+                <!-- Card 1: Plans -->
+                <div class="md:col-span-3 md:row-span-2 glass-card rounded-2xl p-6 flex flex-col justify-between group hover:border-white/20 transition-colors">
+                    <div>
+                        <h3 class="text-sm font-semibold text-white mb-2">Flexible Plans for Every Business</h3>
+                        <p class="text-xs text-neutral-400 leading-relaxed mb-4">From startups to enterprises - pay only for what you need.</p>
+                        <div class="text-2xl font-semibold text-white tracking-tight mb-1">$99<span class="text-sm text-neutral-500 font-normal">/mo</span></div>
+                        <p class="text-[10px] text-neutral-500">No contracts, cancel anytime</p>
+                    </div>
+                    <button class="mt-4 w-full py-2 rounded-full border border-white/10 text-xs font-medium hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2">
+                        Let's Talk <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-3 h-3"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </button>
+                </div>
+
+                <!-- Card 2: Hours Saved (Orange) -->
+                <div class="md:col-span-3 bg-orange-600 rounded-2xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.2),transparent_70%)]"></div>
+                    <div class="relative z-10">
+                        <div class="text-xs font-medium text-orange-100 uppercase tracking-wide mb-2">Hours Saved This Month</div>
+                        <div class="text-5xl font-semibold text-white tracking-tighter">50 hrs</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Cost Savings Circle -->
+                <div class="md:col-span-3 glass-card rounded-2xl p-6 flex items-center justify-center">
+                    <div class="relative w-32 h-32 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90">
+                            <circle cx="64" cy="64" r="58" fill="none" stroke="#262626" stroke-width="8"></circle>
+                            <circle cx="64" cy="64" r="58" fill="none" stroke="#f97316" stroke-width="8" stroke-dasharray="365" stroke-dashoffset="73" stroke-linecap="round"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-xl font-semibold text-white">80%</span>
+                            <span class="text-[10px] text-neutral-500 uppercase">Savings</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Product Images -->
+                <div class="md:col-span-3 glass-card rounded-2xl p-6 flex flex-col justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="image" class="lucide lucide-image w-6 h-6 text-orange-500 mb-3"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
+                    <p class="text-sm text-neutral-300 font-medium leading-relaxed">
+                        "I created 200 product images in one afternoon. This used to take my team 2 weeks!"
+                    </p>
+                </div>
+
+                <!-- Card 5: Center Big Text -->
+                <div class="md:col-span-6 glass-card rounded-2xl p-8 flex items-center justify-center text-center bg-gradient-to-br from-neutral-900 to-black">
+                    <h3 class="text-2xl md:text-3xl font-medium text-white tracking-tight leading-snug">
+                        Your Business Deserves <span class="text-orange-500">Better Visuals</span>
+                        Without the Wait or Cost
+                    </h3>
+                </div>
+
+                <!-- Card 6: Studio Quality -->
+                <div class="md:col-span-3 bg-neutral-900 rounded-2xl p-6 flex flex-col justify-center border border-white/10">
+                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="star" class="lucide lucide-star w-4 h-4 text-white"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>
+                    </div>
+                    <p class="text-sm font-medium text-white leading-relaxed">
+                        Get Studio-Quality Visuals in Minutes, Not Days.
+                    </p>
+                </div>
+
+                <!-- Card 7: Samples -->
+                <div class="md:col-span-3 glass-card rounded-2xl p-6 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-grid opacity-20"></div>
+                    <div class="flex -space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-neutral-700 border border-black"></div>
+                        <div class="w-8 h-8 rounded-full bg-neutral-600 border border-black"></div>
+                        <div class="w-8 h-8 rounded-full bg-neutral-500 border border-black"></div>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-sm font-medium text-white mb-1">Create More.</p>
+                        <p class="text-sm font-medium text-neutral-400 mb-2">Spend Less.</p>
+                        <div class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="clock" class="lucide lucide-clock w-3 h-3 text-orange-500"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                            <span class="text-[10px] text-orange-400">Ready in Minutes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: Chart -->
+                <div class="md:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-end">
+                    <div class="flex items-end gap-2 h-24 mb-3">
+                        <div class="w-full bg-neutral-800 rounded-t h-[30%]"></div>
+                        <div class="w-full bg-neutral-800 rounded-t h-[50%]"></div>
+                        <div class="w-full bg-orange-600 rounded-t h-[75%]"></div>
+                        <div class="w-full bg-neutral-800 rounded-t h-[45%]"></div>
+                        <div class="w-full bg-neutral-800 rounded-t h-[60%]"></div>
+                    </div>
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="text-[10px] text-neutral-500 uppercase">Visuals Generated Today</div>
+                            <div class="text-xl font-semibold text-white">500+</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9: Savings Button style -->
+                <div class="md:col-span-4 rounded-2xl p-1 bg-gradient-to-r from-orange-500 to-red-500">
+                    <div class="w-full h-full bg-[#0B0C0E] rounded-xl p-5 flex flex-col items-center justify-center text-center">
+                        <span class="text-xs text-neutral-400 mb-1">You Could Save</span>
+                        <span class="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">80%</span>
+                        <span class="text-[10px] text-neutral-500 mt-1">vs traditional design costs</span>
+                    </div>
+                </div>
+
+                <!-- Card 10: Social Proof -->
+                <div class="md:col-span-4 glass-card rounded-2xl p-6 flex flex-col justify-center">
+                    <p class="text-sm text-neutral-300 leading-relaxed">
+                        Join <span class="text-white font-medium">50+ businesses</span> creating unlimited content for less than one designer's salary.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Solution Split -->
+    <section class="py-24 border-t border-white/[0.06]">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-white mb-6">
+                        Struggling with slow
+                        <span class="text-neutral-500">content creation?</span>
+                    </h2>
+                    <p class="text-sm text-neutral-400 mb-8 leading-relaxed max-w-md">
+                        Creating quality visuals shouldn't take weeks or cost thousands. I use AI to generate professional videos and graphics in hours, not days - at a fraction of traditional costs.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex gap-3">
+                            <div class="mt-1 w-5 h-5 rounded-full bg-orange-500/10 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3 h-3 text-orange-500"><path d="M20 6 9 17l-5-5"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-white">Fast turnarounds</h4>
+                                <p class="text-xs text-neutral-500">Hours instead of weeks</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="mt-1 w-5 h-5 rounded-full bg-orange-500/10 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3 h-3 text-orange-500"><path d="M20 6 9 17l-5-5"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-white">Unlimited revisions</h4>
+                                <p class="text-xs text-neutral-500">Iterate until it's perfect</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="mt-1 w-5 h-5 rounded-full bg-orange-500/10 flex items-center justify-center shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-3 h-3 text-orange-500"><path d="M20 6 9 17l-5-5"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-white">One flat monthly rate</h4>
+                                <p class="text-xs text-neutral-500">No hidden fees or surprises</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-neutral-500 italic">
+                        Skip the expensive agencies and endless waiting. Get the content you need, when you need it.
+                    </p>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-0 bg-orange-500/20 blur-[80px] rounded-full z-0"></div>
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <!-- Placeholder for the woman in blazer image -->
+                        <img src="https://images.unsplash.com/photo-1548142813-c348350df52b?q=80&amp;w=989&amp;auto=format&amp;fit=crop" alt="Fashion portrait" class="w-full h-auto object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dark Video Area -->
+    <section class="py-12">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="w-full aspect-video rounded-2xl bg-gradient-to-b from-[#1C1D21] to-[#0B0C0E] border border-white/[0.06] shadow-2xl flex items-center justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),transparent_60%)]"></div>
+                <!-- Abstract glow at bottom right as per screenshot -->
+                <div class="absolute -bottom-[20%] -right-[10%] w-[600px] h-[400px] bg-orange-600/20 blur-[100px] rounded-full pointer-events-none"></div>
+                
+                <div class="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" class="lucide lucide-play w-6 h-6 text-white ml-1"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="py-24">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-block px-3 py-1 mb-4 text-[10px] font-medium uppercase tracking-widest text-neutral-500 border border-white/5 rounded-full bg-white/[0.02]">
+                    How It Works
+                </div>
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-4 tracking-tight">From Idea to Launch in 3 Steps</h2>
+                <p class="text-sm text-neutral-400">No complicated process. Just tell me what you need and I handle the rest.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Connector Line -->
+                <div class="hidden md:block absolute top-6 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-white/10 to-transparent border-t border-dashed border-white/10 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full bg-[#0B0C0E] border border-white/10 flex items-center justify-center mb-6 shadow-xl">
+                        <span class="text-sm font-medium text-white">1</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">Share Your Vision</h3>
+                    <p class="text-xs text-neutral-500 leading-relaxed max-w-xs">
+                        Quick call or message to understand your goals, brand style, and timeline.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full bg-[#0B0C0E] border border-white/10 flex items-center justify-center mb-6 shadow-xl">
+                        <span class="text-sm font-medium text-white">2</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">I Create with AI</h3>
+                    <p class="text-xs text-neutral-500 leading-relaxed max-w-xs">
+                        Using the latest AI tools, I design visuals and build automations tailored to you.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-12 h-12 rounded-full bg-[#0B0C0E] border border-white/10 flex items-center justify-center mb-6 shadow-xl">
+                        <span class="text-sm font-medium text-white">3</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-white mb-2">You Launch &amp; Grow</h3>
+                    <p class="text-xs text-neutral-500 leading-relaxed max-w-xs">
+                        Get your assets, launch your campaign, and watch the results come in.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <button class="h-10 px-8 rounded-full bg-[#16171B] border border-white/10 text-neutral-200 text-xs font-medium hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
+                    Book a 15-minute chat <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-3 h-3"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-24 bg-[#0F1012] border-y border-white/[0.06]">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-block px-3 py-1 mb-4 text-[10px] font-medium uppercase tracking-widest text-neutral-500 border border-white/5 rounded-full bg-white/[0.02]">
+                    Pricing
+                </div>
+                <h2 class="text-3xl md:text-4xl font-medium text-white mb-6 tracking-tight">No Surprises. Just Fair Pricing.</h2>
+                
+                <div class="inline-flex items-center p-1 rounded-full bg-white/[0.03] border border-white/[0.06]">
+                    <button class="px-6 py-1.5 rounded-full bg-white text-black text-xs font-medium shadow-sm">Monthly</button>
+                    <button class="px-6 py-1.5 rounded-full text-neutral-400 text-xs font-medium hover:text-white transition-colors">Yearly</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Starter -->
+                <div class="p-8 rounded-2xl border border-white/[0.06] bg-[#0B0C0E] flex flex-col">
+                    <h3 class="text-sm font-medium text-neutral-400 mb-2">Starter</h3>
+                    <p class="text-[10px] text-neutral-500 mb-6 h-8">Perfect for small projects or trying out AI-generated content.</p>
+                    
+                    <div class="text-3xl font-semibold text-white mb-1">$299</div>
+                    <div class="text-[10px] text-neutral-500 mb-8">One-Time Project</div>
+
+                    <button class="w-full py-2.5 rounded-lg border border-white/10 text-neutral-300 text-xs font-medium hover:bg-white hover:text-black transition-all mb-8">
+                        Let's Talk
+                    </button>
+
+                    <div class="space-y-3 mt-auto">
+                        <div class="flex gap-2 text-xs text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-neutral-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> 15 custom AI images
+                        </div>
+                        <div class="flex gap-2 text-xs text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-neutral-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> 2 revision rounds
+                        </div>
+                        <div class="flex gap-2 text-xs text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-neutral-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> 5-7 day delivery
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro -->
+                <div class="p-8 rounded-2xl border border-orange-500/30 bg-[#16171B] flex flex-col relative">
+                    <div class="absolute top-0 right-0 -mt-3 mr-4 px-2 py-0.5 bg-orange-500 text-white text-[10px] font-bold uppercase tracking-wide rounded">Popular</div>
+                    
+                    <h3 class="text-sm font-medium text-orange-400 mb-2">Pro</h3>
+                    <p class="text-[10px] text-neutral-500 mb-6 h-8">For businesses needing ongoing visual and video content.</p>
+                    
+                    <div class="text-3xl font-semibold text-white mb-1">$999</div>
+                    <div class="text-[10px] text-neutral-500 mb-8">Per Month</div>
+
+                    <button class="w-full py-2.5 rounded-lg bg-white text-black text-xs font-medium hover:bg-neutral-200 transition-all mb-8">
+                        Let's Talk
+                    </button>
+
+                    <div class="space-y-3 mt-auto">
+                        <div class="flex gap-2 text-xs text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-orange-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> 50 custom AI images per month
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-orange-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> 5 AI-generated videos (10-15s)
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-orange-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> Unlimited revisions
+                        </div>
+                        <div class="flex gap-2 text-xs text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-orange-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> Priority 48-hour turnaround
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elite -->
+                <div class="p-8 rounded-2xl border border-white/[0.06] bg-[#0B0C0E] flex flex-col">
+                    <h3 class="text-sm font-medium text-neutral-400 mb-2">Elite</h3>
+                    <p class="text-[10px] text-neutral-500 mb-6 h-8">Best for agencies and brands with high-volume creative needs.</p>
+                    
+                    <div class="text-3xl font-semibold text-white mb-1">$2,999</div>
+                    <div class="text-[10px] text-neutral-500 mb-8">Per Month</div>
+
+                    <button class="w-full py-2.5 rounded-lg border border-white/10 text-neutral-300 text-xs font-medium hover:bg-white hover:text-black transition-all mb-8">
+                        Let's Talk
+                    </button>
+
+                    <div class="space-y-3 mt-auto">
+                        <div class="flex gap-2 text-xs text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-neutral-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> Unlimited images + video (30s)
+                        </div>
+                        <div class="flex gap-2 text-xs text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-neutral-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> Full brand customization
+                        </div>
+                        <div class="flex gap-2 text-xs text-neutral-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="check" class="lucide lucide-check w-4 h-4 text-neutral-500 shrink-0"><path d="M20 6 9 17l-5-5"></path></svg> 24hr turnaround
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24">
+        <div class="max-w-[800px] mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="inline-block px-3 py-1 mb-4 text-[10px] font-medium uppercase tracking-widest text-neutral-500 border border-white/5 rounded-full bg-white/[0.02]">
+                    FAQ
+                </div>
+                <h2 class="text-3xl font-medium text-white mb-2 tracking-tight">Got Questions?</h2>
+                <p class="text-sm text-neutral-400">Here's what clients usually ask before we work together.</p>
+            </div>
+
+            <div class="space-y-2">
+                <!-- Q1 -->
+                <details class="group bg-[#121316] border border-white/[0.06] rounded-lg open:bg-neutral-900 transition-colors">
+                    <summary class="flex justify-between items-center cursor-pointer p-4">
+                        <span class="text-sm font-medium text-neutral-200">What exactly is AI-generated content?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"><path d="m6 9 6 6 6-6"></path></svg>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-neutral-400 leading-relaxed">
+                        It's content created using advanced machine learning algorithms. We use proprietary pipelines to ensure high-fidelity, brand-consistent visuals that are virtually indistinguishable from traditional photography and 3D rendering.
+                    </div>
+                </details>
+                <!-- Q2 -->
+                <details class="group bg-[#121316] border border-white/[0.06] rounded-lg open:bg-neutral-900 transition-colors">
+                    <summary class="flex justify-between items-center cursor-pointer p-4">
+                        <span class="text-sm font-medium text-neutral-200">Will my content look generic or fake?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"><path d="m6 9 6 6 6-6"></path></svg>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-neutral-400 leading-relaxed">
+                        Absolutely not. We fine-tune models specifically on your brand guidelines, color palettes, and existing assets to create bespoke content that is uniquely yours.
+                    </div>
+                </details>
+                <!-- Q3 -->
+                <details class="group bg-[#121316] border border-white/[0.06] rounded-lg open:bg-neutral-900 transition-colors">
+                    <summary class="flex justify-between items-center cursor-pointer p-4">
+                        <span class="text-sm font-medium text-neutral-200">How fast can I get my project done?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"><path d="m6 9 6 6 6-6"></path></svg>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-neutral-400 leading-relaxed">
+                        Standard delivery is within 24-48 hours. Our AI-driven workflow eliminates the typical weeks-long production cycles of traditional agencies.
+                    </div>
+                </details>
+                <!-- Q4 -->
+                <details class="group bg-[#121316] border border-white/[0.06] rounded-lg open:bg-neutral-900 transition-colors">
+                    <summary class="flex justify-between items-center cursor-pointer p-4">
+                        <span class="text-sm font-medium text-neutral-200">How much money will I actually save?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"><path d="m6 9 6 6 6-6"></path></svg>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-neutral-400 leading-relaxed">
+                        Most clients see savings of around 80% compared to traditional photoshoots, location rentals, model fees, and post-production costs.
+                    </div>
+                </details>
+                <!-- Q5 -->
+                <details class="group bg-[#121316] border border-white/[0.06] rounded-lg open:bg-neutral-900 transition-colors">
+                    <summary class="flex justify-between items-center cursor-pointer p-4">
+                        <span class="text-sm font-medium text-neutral-200">What if I need changes?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"><path d="m6 9 6 6 6-6"></path></svg>
+                    </summary>
+                    <div class="px-4 pb-4 text-xs text-neutral-400 leading-relaxed">
+                        We offer revision rounds included in every package. Because we use AI, iterations are incredibly fast, allowing us to tweak lighting, composition, or details in minutes.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="bg-gradient-to-b from-[#1C1D21] to-[#0B0C0E] rounded-3xl border border-white/[0.06] p-12 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_60%)]"></div>
+                
+                <div class="relative z-10 max-w-xl mx-auto">
+                    <h2 class="text-3xl font-medium text-white mb-4 tracking-tight">Ready to Create Fasterand Spend Less?</h2>
+                    <p class="text-sm text-neutral-400 mb-8">
+                        Join businesses already saving time and money with AI-powered creatives.
+                    </p>
+                    <button class="h-10 px-8 rounded-full bg-white text-black text-xs font-medium hover:bg-neutral-200 transition-all inline-flex items-center gap-2">
+                        Let's Talk <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-3 h-3"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/[0.06] bg-[#0B0C0E] py-12">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-[10px] text-neutral-600">
+                    Copyright © 2024 Spark Labs - Your AI creative partner
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-[10px] text-neutral-600 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-[10px] text-neutral-600 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-[10px] text-neutral-600 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body></html>
